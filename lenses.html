@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenses - The Lenses & Levels Architecture Documentation Model</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <aside class="sidebar">
+            <div id="branding">
+                <h1>The <span class="highlight">Lenses & Levels</span> Architecture Documentation Model</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li class="current">
+                        <a href="lenses.html">Lenses</a>
+                        <ul class="sub-menu">
+                            <li><a href="lens_system.html">System Lens</a></li>
+                            <li><a href="lens_capability.html">Capability Lens</a></li>
+                            <li><a href="lens_domain.html">Domain Lens</a></li>
+                            <li><a href="lens_data.html">Data Lens</a></li>
+                            <li><a href="lens_integration.html">Integration Lens</a></li>
+                            <li><a href="lens_runtime.html">Runtime Lens</a></li>
+                            <li><a href="lens_deployment.html">Deployment Lens</a></li>
+                            <li><a href="lens_security.html">Security Lens</a></li>
+                            <li><a href="lens_quality_attributes.html">Quality Attributes Lens</a></li>
+                            <li><a href="lens_governance_decision.html">Governance & Decision Lens</a></li>
+                            <li><a href="lens_evolution.html">Evolution Lens</a></li>
+                            <li><a href="lens_ux.html">UX & Interaction Lens</a></li>
+                            <li><a href="lens_organization.html">Organization Lens</a></li>
+                            <li><a href="lens_cost.html">Cost Lens</a></li>
+                            <li><a href="lens_compliance.html">Compliance Lens</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="templates.html">Templates</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-area">
+            <section class="main-content">
+                <h2>Architectural Lenses</h2>
+                <p>Lenses represent different architectural concerns, providing distinct perspectives through which to view a system. Each lens allows stakeholders to focus on specific aspects without being overwhelmed by unrelated details. Below is the set of lenses proposed by this framework.</p>
+
+                <div class="lens-list">
+                    <ul>
+                        <li>
+                            <a href="lens_system.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><rect x="7.5" y="2" width="9" height="9" rx="1" stroke="currentColor" stroke-width="2" fill="none"/><rect x="2" y="13" width="9" height="9" rx="1" stroke="currentColor" stroke-width="2" fill="none"/><rect x="13" y="13" width="9" height="9" rx="1" stroke="currentColor" stroke-width="2" fill="none"/></svg> System Lens</h4>
+                                <p>What the system is and how it is structured. Covers boundaries, context, containers, components, and their relationships.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_capability.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.27l-6.18 3.25L7 14.14l-5-4.87 6.91-0.91L12 2z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg> Capability Lens</h4>
+                                <p>What the system enables the business to do. Describes business capabilities, value streams, feature groupings, and ownership domains.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_domain.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg> Domain Lens</h4>
+                                <p>The conceptual model of the problem space. Core domain concepts, aggregates, bounded contexts, ubiquitous language, invariants.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_data.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="2" fill="none"/></svg> Data Lens</h4>
+                                <p>How information is structured, stored, and flows. Data models, ownership, lifecycle, integration flows, persistence choices, APIs, schemas.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_integration.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" fill="none"/></svg> Integration Lens</h4>
+                                <p>How the system interacts with other systems. APIs, contracts, events, external dependencies, messaging, protocols, versioning strategy.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_runtime.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M10 8l6 4-6 4V8z" fill="currentColor"/></svg> Runtime Lens</h4>
+                                <p>How the system behaves when it runs. Execution flows, concurrency, scaling, state management, failure handling, resilience patterns.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_deployment.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><path d="M2 22h20M5 22V2l12 2M11 4v6" stroke="currentColor" stroke-width="2" fill="none"/><rect x="9" y="10" width="4" height="4" stroke="currentColor" stroke-width="2" fill="none"/></svg> Deployment Lens</h4>
+                                <p>How the system is built, deployed, and operated. Environments, infrastructure topology, CI/CD, containerization, cloud setup, networking.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_security.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5L12 1zm0 2.19L19 5.3v5.7c0 4.26-2.91 8.24-7 9.87-4.09-1.63-7-5.61-7-9.87V5.3l7-2.11z" fill="currentColor"/></svg> Security Lens</h4>
+                                <p>How risk is mitigated and trust is established. Threat model, identity, authorization, data protection, compliance, auditability.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_quality_attributes.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 7V12l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Quality Attributes Lens</h4>
+                                <p>How non-functional requirements are realized. Performance, availability, scalability, maintainability, observability, operability.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_governance_decision.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/></svg> Governance & Decision Lens</h4>
+                                <p>Why the architecture is the way it is. Architecture Decision Records (ADRs), constraints, principles, standards, trade-offs.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_evolution.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><path d="M20.49 9A9 9 0 1 0 21 12" stroke="currentColor" stroke-width="2" fill="none"/><path d="M16 9h5V4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Evolution Lens</h4>
+                                <p>How the system changes over time. Roadmap, technical debt, migration paths, deprecation strategy, architectural runway.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_ux.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><path d="M20 7H4m0 0l4-4m-4 4l4 4M4 17h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> UX & Interaction Lens</h4>
+                                <p>How the user perceives and interacts with the system. Covers user journeys, design systems, frontend architecture patterns, and accessibility.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_organization.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Organization Lens</h4>
+                                <p>How the human organization aligns with the technical architecture. Covers team topologies, ownership boundaries, and cognitive load management.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_cost.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Cost Lens</h4>
+                                <p>The economic perspective of the architecture. Covers infrastructure spend, licensing, operational costs, and environmental sustainability.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lens_compliance.html">
+                                <h4><svg class="lens-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Compliance Lens</h4>
+                                <p>The regulatory and legal perspective. Covers industry standards (SOC2, HIPAA), data residency laws, and audit requirements.</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>The Lenses & Levels Architecture Documentation Model &copy; 2026</p>
+    </footer>
+</body>
+</html>

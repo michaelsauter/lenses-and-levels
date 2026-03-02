@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Lens - The Lenses & Levels Architecture Documentation Model</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .lens-hero-icon {
+            width: 36px;
+            height: 36px;
+            margin-right: 15px;
+            vertical-align: middle;
+            fill: var(--primary-color);
+        }
+        .main-content h2 {
+            display: flex;
+            align-items: center;
+        }
+        .example-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color-light);
+        }
+        .example-section h4 {
+            border-bottom: 1px solid var(--border-color-light);
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <aside class="sidebar">
+            <div id="branding">
+                <h1>The <span class="highlight">Lenses & Levels</span> Architecture Documentation Model</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li class="current">
+                        <a href="lenses.html">Lenses</a>
+                        <ul class="sub-menu">
+                            <li><a href="lens_system.html">System Lens</a></li>
+                            <li><a href="lens_capability.html">Capability Lens</a></li>
+                            <li><a href="lens_domain.html">Domain Lens</a></li>
+                            <li><a href="lens_data.html">Data Lens</a></li>
+                            <li><a href="lens_integration.html">Integration Lens</a></li>
+                            <li><a href="lens_runtime.html">Runtime Lens</a></li>
+                            <li><a href="lens_deployment.html">Deployment Lens</a></li>
+                            <li><a href="lens_security.html">Security Lens</a></li>
+                            <li><a href="lens_quality_attributes.html">Quality Attributes Lens</a></li>
+                            <li><a href="lens_governance_decision.html">Governance & Decision Lens</a></li>
+                            <li><a href="lens_evolution.html">Evolution Lens</a></li>
+                            <li><a href="lens_ux.html">UX & Interaction Lens</a></li>
+                            <li class="current"><a href="lens_organization.html">Organization Lens</a></li>
+                            <li><a href="lens_cost.html">Cost Lens</a></li>
+                            <li><a href="lens_compliance.html">Compliance Lens</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="templates.html">Templates</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-area">
+            <section class="main-content">
+                <h2>
+                    <svg class="lens-hero-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Organization Lens
+                </h2>
+                <p><strong>Description:</strong> How the human organization aligns with the technical architecture. Covers team topologies, ownership boundaries, and cognitive load management.</p>
+
+                <h3>General Level Guidance</h3>
+
+                <div class="level-details introduction">
+                    <h4>Level 1 — Introduction</h4>
+                    <ul>
+                        <li>What is the overall organizational structure (e.g. Squads, Tribes, Hierarchical)?</li>
+                        <li>How does the organization align with Conway’s Law?</li>
+                        <li>What are the high-level ownership philosophies (e.g. "You build it, you run it")?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: An Org Chart or a high-level Team Structure diagram.</em></p>
+                </div>
+
+                <div class="level-details orientation">
+                    <h4>Level 2 — Orientation</h4>
+                    <ul>
+                        <li>Which team is responsible for which technical components?</li>
+                        <li>What are the different team types (e.g. Stream-aligned, Platform, Enabling)?</li>
+                        <li>How do teams communicate and hand over work?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: A Team Topologies diagram or an Ownership Matrix (RACI).</em></p>
+                </div>
+
+                <div class="level-details elaboration">
+                    <h4>Level 3 — Elaboration</h4>
+                    <ul>
+                        <li>What are the specific on-call and rotation procedures for each team?</li>
+                        <li>How is cognitive load measured and mitigated for a specific stream-aligned team?</li>
+                        <li>What are the specific interaction modes (e.g. Collaboration, X-as-a-Service) between teams?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: Link to Team Charters, On-call schedules (PagerDuty), and internal 'Ways of Working' documents.</em></p>
+                </div>
+
+                <div class="example-section">
+                    <h3>Example: Completely over-engineered Todo-App</h3>
+
+                    <div class="level-details introduction">
+                        <h4>Level 1 — Introduction</h4>
+                        <p>We follow a <strong>decentralized squad model</strong> where engineering teams are aligned with specific business domains to maximize speed and autonomy, explicitly mirroring our microservices structure.</p>
+                    </div>
+
+                    <div class="level-details orientation">
+                        <h4>Level 2 — Orientation</h4>
+                        <p>Our teams are categorized using <strong>Team Topologies</strong>:</p>
+                        <ul>
+                            <li><strong>Squad 'Alpha' (Stream-aligned):</strong> Owns the Productivity Domain and Todo Service.</li>
+                            <li><strong>Squad 'Sigma' (Stream-aligned):</strong> Owns the Collaboration Domain and Sync Engine.</li>
+                            <li><strong>Core Platform (Platform Team):</strong> Owns the EKS Cluster, CI/CD pipelines, and shared libraries.</li>
+                        </ul>
+                    </div>
+
+                    <div class="level-details elaboration">
+                        <h4>Level 3 — Elaboration</h4>
+                        
+                        <h5>Team Interaction Modes</h5>
+                        <p>Squad 'Alpha' consumes the EKS cluster as <strong>X-as-a-Service</strong> from the Platform team. However, when Alpha needs a new infrastructure capability (e.g. a specific RDS extension), they enter a short-term <strong>Collaboration</strong> period with the Platform team to co-develop the Terraform module.</p>
+                        
+                        <h5>Cognitive Load Management</h5>
+                        <p>To prevent overload, Squad 'Alpha' is explicitly *not* responsible for the legacy Java monolith. That monolith is 'trapped' in a maintenance mode managed by a dedicated transition team, ensuring Alpha can focus 100% on the new Go/Node.js stack.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>The Lenses & Levels Architecture Documentation Model &copy; 2026</p>
+    </footer>
+</body>
+</html>

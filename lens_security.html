@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Lens - The Lenses & Levels Architecture Documentation Model</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .lens-hero-icon {
+            width: 36px;
+            height: 36px;
+            margin-right: 15px;
+            vertical-align: middle;
+            fill: var(--primary-color);
+        }
+        .main-content h2 {
+            display: flex;
+            align-items: center;
+        }
+        .example-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color-light);
+        }
+        .example-section h4 {
+            border-bottom: 1px solid var(--border-color-light);
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <aside class="sidebar">
+            <div id="branding">
+                <h1>The <span class="highlight">Lenses & Levels</span> Architecture Documentation Model</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li class="current">
+                        <a href="lenses.html">Lenses</a>
+                        <ul class="sub-menu">
+                            <li><a href="lens_system.html">System Lens</a></li>
+                            <li><a href="lens_capability.html">Capability Lens</a></li>
+                            <li><a href="lens_domain.html">Domain Lens</a></li>
+                            <li><a href="lens_data.html">Data Lens</a></li>
+                            <li><a href="lens_integration.html">Integration Lens</a></li>
+                            <li><a href="lens_runtime.html">Runtime Lens</a></li>
+                            <li><a href="lens_deployment.html">Deployment Lens</a></li>
+                            <li class="current"><a href="lens_security.html">Security Lens</a></li>
+                            <li><a href="lens_quality_attributes.html">Quality Attributes Lens</a></li>
+                            <li><a href="lens_governance_decision.html">Governance & Decision Lens</a></li>
+                            <li><a href="lens_evolution.html">Evolution Lens</a></li>
+                            <li><a href="lens_ux.html">UX & Interaction Lens</a></li>
+                            <li><a href="lens_organization.html">Organization Lens</a></li>
+                            <li><a href="lens_cost.html">Cost Lens</a></li>
+                            <li><a href="lens_compliance.html">Compliance Lens</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="templates.html">Templates</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-area">
+            <section class="main-content">
+                <h2>
+                    <svg class="lens-hero-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5L12 1zm0 2.19L19 5.3v5.7c0 4.26-2.91 8.24-7 9.87-4.09-1.63-7-5.61-7-9.87V5.3l7-2.11z" fill="currentColor"/></svg>
+                    Security Lens
+                </h2>
+                <p><strong>Description:</strong> How risk is mitigated and trust is established. Threat model, identity, authorization, data protection, compliance, auditability.</p>
+
+                <h3>General Level Guidance</h3>
+
+                <div class="level-details introduction">
+                    <h4>Level 1 — Introduction</h4>
+                    <ul>
+                        <li>What is our primary security philosophy (e.g., Zero Trust, Defense in Depth)?</li>
+                        <li>What are the most critical assets we are protecting?</li>
+                        <li>Who are our primary threat actors and what are we worried about?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: A high-level Security Strategy statement or 'Top 5 Security Goals' list.</em></p>
+                </div>
+
+                <div class="level-details orientation">
+                    <h4>Level 2 — Orientation</h4>
+                    <ul>
+                        <li>How is identity and access managed globally (AuthN/AuthZ)?</li>
+                        <li>Where are the trust boundaries located in the system?</li>
+                        <li>How is data classified and where is encryption applied (Transit vs Rest)?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: A high-level Identity Architecture diagram and links to Secrets Managers (e.g., HashiCorp Vault, AWS Secrets Manager).</em></p>
+                </div>
+
+                <div class="level-details elaboration">
+                    <h4>Level 3 — Elaboration</h4>
+                    <ul>
+                        <li>What is the specific RBAC, ABAC, or Policy-as-Code matrix?</li>
+                        <li>What are the detailed threat models for the highest-risk components?</li>
+                        <li>How are audit logs and security events collected and protected for compliance?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: Detailed Threat Model documents (e.g., STRIDE analysis), OPA/Rego policy files, or RBAC YAML definitions.</em></p>
+                </div>
+
+                <div class="example-section">
+                    <h3>Example: Completely over-engineered Todo-App</h3>
+
+                    <div class="level-details introduction">
+                        <h4>Level 1 — Introduction</h4>
+                        <p>Our security posture is <strong>Zero Trust</strong> by design, assuming the network is always compromised and requiring explicit cryptographic proof for every interaction.</p>
+                    </div>
+
+                    <div class="level-details orientation">
+                        <h4>Level 2 — Orientation</h4>
+                        <p>The identity perimeter is managed by <strong>Auth0 (OIDC)</strong> for human users and <strong>AWS IAM (IRSA)</strong> for service-to-service authorization. Within the EKS cluster, <strong>Kubernetes Network Policies</strong> create a default-deny posture, strictly whitelisting only the necessary traffic paths (e.g., Gateway -> Todo Service).</p>
+                        <p>Data is classified into three tiers: <code>Public</code> (Static assets), <code>Private</code> (User task titles), and <code>Sensitive</code> (Email addresses, Session tokens). All 'Private' and 'Sensitive' data is encrypted at rest using <strong>AWS KMS-managed keys</strong> and in transit via <strong>mTLS</strong> within the cluster mesh.</p>
+                    </div>
+
+                    <div class="level-details elaboration">
+                        <h4>Level 3 — Elaboration</h4>
+                        
+                        <h5>Detailed Threat Model: Task Disclosure</h5>
+                        <p>We've identified 'Unauthorized Task Access' as a primary threat. Mitigation involves:</p>
+                        <ul>
+                            <li><strong>Identity Validation:</strong> JWT must contain a valid <code>sub</code> claim.</li>
+                            <li><strong>Application Authorization:</strong> Todo Service performs a row-level check: <code>SELECT * FROM tasks WHERE id = ? AND list_id IN (SELECT list_id FROM user_permissions WHERE user_id = ?)</code>.</li>
+                            <li><strong>Infrastructure Protection:</strong> Database is in a private subnet with no public IP.</li>
+                        </ul>
+                        
+                        <h5>Encryption Implementation Specs</h5>
+                        <p>We use <strong>AES-256-GCM</strong> for application-level encryption of 'Sensitive' fields before they hit the database. The encryption keys are rotated every 90 days via KMS automated rotation. TLS 1.3 is enforced at the ALB with <code>Perfect Forward Secrecy</code> enabled.</p>
+
+                        <h5>RBAC Matrix (Role-Based Access Control)</h5>
+                        <table style="width:100%; border-collapse: collapse; font-size: 0.9em;">
+                            <thead>
+                                <tr style="background: var(--background-color-offwhite); border-bottom: 1px solid var(--border-color-medium);">
+                                    <th style="padding: 10px; text-align: left;">Role</th>
+                                    <th style="padding: 10px; text-align: left;">Resource</th>
+                                    <th style="padding: 10px; text-align: left;">Action</th>
+                                    <th style="padding: 10px; text-align: left;">Condition</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border-color-light);">
+                                    <td style="padding: 10px;">User</td>
+                                    <td style="padding: 10px;">Task</td>
+                                    <td style="padding: 10px;">CRUD</td>
+                                    <td style="padding: 10px;">Owned/Shared</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color-light);">
+                                    <td style="padding: 10px;">Support</td>
+                                    <td style="padding: 10px;">User Profile</td>
+                                    <td style="padding: 10px;">Read</td>
+                                    <td style="padding: 10px;">Active Ticket</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h5>Audit Logging Architecture</h5>
+                        <p>All administrative actions (e.g., User Deletion, Role Grant) are logged via a sidecar to <strong>CloudWatch Logs</strong>. These logs are then exported to a restricted S3 bucket with <strong>Object Lock</strong> enabled to ensure immutability for compliance audits.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>The Lenses & Levels Architecture Documentation Model &copy; 2026</p>
+    </footer>
+</body>
+</html>

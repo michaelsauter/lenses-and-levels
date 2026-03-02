@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capability Lens - The Lenses & Levels Architecture Documentation Model</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .lens-hero-icon {
+            width: 36px;
+            height: 36px;
+            margin-right: 15px;
+            vertical-align: middle;
+            fill: var(--primary-color);
+        }
+        .main-content h2 {
+            display: flex;
+            align-items: center;
+        }
+        .example-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color-light);
+        }
+        .example-section h4 {
+            border-bottom: 1px solid var(--border-color-light);
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <aside class="sidebar">
+            <div id="branding">
+                <h1>The <span class="highlight">Lenses & Levels</span> Architecture Documentation Model</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li class="current">
+                        <a href="lenses.html">Lenses</a>
+                        <ul class="sub-menu">
+                            <li><a href="lens_system.html">System Lens</a></li>
+                            <li class="current"><a href="lens_capability.html">Capability Lens</a></li>
+                            <li><a href="lens_domain.html">Domain Lens</a></li>
+                            <li><a href="lens_data.html">Data Lens</a></li>
+                            <li><a href="lens_integration.html">Integration Lens</a></li>
+                            <li><a href="lens_runtime.html">Runtime Lens</a></li>
+                            <li><a href="lens_deployment.html">Deployment Lens</a></li>
+                            <li><a href="lens_security.html">Security Lens</a></li>
+                            <li><a href="lens_quality_attributes.html">Quality Attributes Lens</a></li>
+                            <li><a href="lens_governance_decision.html">Governance & Decision Lens</a></li>
+                            <li><a href="lens_evolution.html">Evolution Lens</a></li>
+                            <li><a href="lens_ux.html">UX & Interaction Lens</a></li>
+                            <li><a href="lens_organization.html">Organization Lens</a></li>
+                            <li><a href="lens_cost.html">Cost Lens</a></li>
+                            <li><a href="lens_compliance.html">Compliance Lens</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="templates.html">Templates</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-area">
+            <section class="main-content">
+                <h2>
+                    <svg class="lens-hero-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.36L22 9.27l-5 4.87 1.18 6.88L12 17.27l-6.18 3.25L7 14.14l-5-4.87 6.91-0.91L12 2z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                    Capability Lens
+                </h2>
+                <p><strong>Description:</strong> What the system enables the business to do. Describes business capabilities, value streams, feature groupings, and ownership domains. Bridges strategy and implementation.</p>
+
+                <h3>General Level Guidance</h3>
+
+                <div class="level-details introduction">
+                    <h4>Level 1 — Introduction</h4>
+                    <ul>
+                        <li>What are the high-level business goals this system supports?</li>
+                        <li>What is the primary value proposition for the users?</li>
+                        <li>What are the 3-5 'North Star' capabilities?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: A high-level Capability Map or Business Canvas.</em></p>
+                </div>
+
+                <div class="level-details orientation">
+                    <h4>Level 2 — Orientation</h4>
+                    <ul>
+                        <li>How are capabilities grouped into logical business domains or value streams?</li>
+                        <li>Which technical components (from the System Lens) realize which business capabilities?</li>
+                        <li>What are the primary dependencies or shared foundations between these capability groups?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: A Capability-to-System mapping matrix or a Value Stream Map.</em></p>
+                </div>
+
+                <div class="level-details elaboration">
+                    <h4>Level 3 — Elaboration</h4>
+                    <ul>
+                        <li>What are the specific features and sub-capabilities within a domain?</li>
+                        <li>How do capabilities depend on or block each other at a functional level?</li>
+                        <li>What are the specific business KPIs or metrics used to measure the success of this capability?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: Link to Product Backlogs (Jira/Linear), Roadmap tools (Productboard), or analytics dashboards.</em></p>
+                </div>
+
+                <div class="example-section">
+                    <h3>Example: Completely over-engineered Todo-App</h3>
+
+                    <div class="level-details introduction">
+                        <h4>Level 1 — Introduction</h4>
+                        <p>The platform provides digital <strong>Personal Productivity</strong> and <strong>Team Collaboration</strong> capabilities, enabling users to transition from individual task tracking to complex project management.</p>
+                    </div>
+
+                    <div class="level-details orientation">
+                        <h4>Level 2 — Orientation</h4>
+                        <p>Capabilities are structured into three primary business domains. The <strong>Core Productivity</strong> domain (CRUD, task organization) is realized primarily by the Todo Service. The <strong>Collaboration Hub</strong> domain (sharing, real-time presence) leverages both the User Service and the Sync Engine. Finally, the <strong>Platform Foundation</strong> provides cross-cutting capabilities like global search and audit trails.</p>
+                        <p>Each capability maps to specific system containers; for example, the 'Smart Task Scheduling' capability is provided by the Todo Service interacting with a dedicated ML-inference sidecar, while 'Identity Management' is delegated to an external provider.</p>
+                    </div>
+
+                    <div class="level-details elaboration">
+                        <h4>Level 3 — Elaboration</h4>
+                        
+                        <h5>Collaboration Hub Decomposition</h5>
+                        <p>The collaboration capability is broken down into four granular sub-capabilities: Shared Lists, Task Delegation, Activity Streams, and Presence Management. Shared Lists require integration between the User Service (for RBAC) and the Todo Service (for data isolation).</p>
+                        
+                        <h5>Business Value Stream: Pro Onboarding</h5>
+                        <p>The onboarding stream is a cross-capability sequence designed to maximize conversion:</p>
+                        <ol>
+                            <li>Identity Verification (Identity Context).</li>
+                            <li>Sample Data Generation (Productivity Context).</li>
+                            <li>Collaborator Invitation Flow (Collaboration Context).</li>
+                        </ol>
+
+                        <h5>Capability Dependency Map</h5>
+                        <p>Presence Management has a hard runtime dependency on the Socket Sync Engine. Task Delegation depends on the Notification Service. If the Notification Service is down, Delegation remains 'Degraded' (tasks are assigned but users are not alerted).</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>The Lenses & Levels Architecture Documentation Model &copy; 2026</p>
+    </footer>
+</body>
+</html>

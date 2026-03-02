@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runtime Lens - The Lenses & Levels Architecture Documentation Model</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .lens-hero-icon {
+            width: 36px;
+            height: 36px;
+            margin-right: 15px;
+            vertical-align: middle;
+            fill: var(--primary-color);
+        }
+        .main-content h2 {
+            display: flex;
+            align-items: center;
+        }
+        .example-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color-light);
+        }
+        .example-section h4 {
+            border-bottom: 1px solid var(--border-color-light);
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <aside class="sidebar">
+            <div id="branding">
+                <h1>The <span class="highlight">Lenses & Levels</span> Architecture Documentation Model</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li class="current">
+                        <a href="lenses.html">Lenses</a>
+                        <ul class="sub-menu">
+                            <li><a href="lens_system.html">System Lens</a></li>
+                            <li><a href="lens_capability.html">Capability Lens</a></li>
+                            <li><a href="lens_domain.html">Domain Lens</a></li>
+                            <li><a href="lens_data.html">Data Lens</a></li>
+                            <li><a href="lens_integration.html">Integration Lens</a></li>
+                            <li class="current"><a href="lens_runtime.html">Runtime Lens</a></li>
+                            <li><a href="lens_deployment.html">Deployment Lens</a></li>
+                            <li><a href="lens_security.html">Security Lens</a></li>
+                            <li><a href="lens_quality_attributes.html">Quality Attributes Lens</a></li>
+                            <li><a href="lens_governance_decision.html">Governance & Decision Lens</a></li>
+                            <li><a href="lens_evolution.html">Evolution Lens</a></li>
+                            <li><a href="lens_ux.html">UX & Interaction Lens</a></li>
+                            <li><a href="lens_organization.html">Organization Lens</a></li>
+                            <li><a href="lens_cost.html">Cost Lens</a></li>
+                            <li><a href="lens_compliance.html">Compliance Lens</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="templates.html">Templates</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-area">
+            <section class="main-content">
+                <h2>
+                    <svg class="lens-hero-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M10 8l6 4-6 4V8z" fill="currentColor"/></svg>
+                    Runtime Lens
+                </h2>
+                <p><strong>Description:</strong> How the system behaves when it runs. Execution flows, concurrency, scaling, state management, failure handling, resilience patterns.</p>
+
+                <h3>General Level Guidance</h3>
+
+                <div class="level-details introduction">
+                    <h4>Level 1 — Introduction</h4>
+                    <ul>
+                        <li>How does the system behave when it is 'alive'?</li>
+                        <li>Is it primarily synchronous, asynchronous, or batch-oriented?</li>
+                        <li>What is the high-level request journey through the system?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: A high-level execution flow diagram or 'Request Journey' narrative.</em></p>
+                </div>
+
+                <div class="level-details orientation">
+                    <h4>Level 2 — Orientation</h4>
+                    <ul>
+                        <li>How is traffic routed through the system components?</li>
+                        <li>How does the system scale (or fail) under load?</li>
+                        <li>What is the concurrency and threading model?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: Links to core Monitoring Dashboards (e.g., Grafana, Datadog) and scaling policy definitions (HPA).</em></p>
+                </div>
+
+                <div class="level-details elaboration">
+                    <h4>Level 3 — Elaboration</h4>
+                    <ul>
+                        <li>How exactly does the system handle failures (e.g., Circuit Breakers, Bulkheads)?</li>
+                        <li>What are the specific resource limits (CPU/Memory) and GC settings for the processes?</li>
+                        <li>How is distributed tracing or request-id propagation implemented?</li>
+                    </ul>
+                    <p><em>Common Fulfillment: Link to Distributed Tracing tools (e.g., Jaeger, AWS X-Ray) and specific runtime configurations (e.g., application.yaml, pod-spec.yaml).</em></p>
+                </div>
+
+                <div class="example-section">
+                    <h3>Example: Completely over-engineered Todo-App</h3>
+
+                    <div class="level-details introduction">
+                        <h4>Level 1 — Introduction</h4>
+                        <p>The Todo system is a <strong>highly concurrent, stateless microservices environment</strong> designed to scale horizontally across multiple availability zones under varying user loads.</p>
+                    </div>
+
+                    <div class="level-details orientation">
+                        <h4>Level 2 — Orientation</h4>
+                        <p>The runtime behavior is managed by <strong>Kubernetes</strong>. Requests follow a path from the user's browser to CloudFront (CDN), then through an Application Load Balancer (ALB) to the EKS cluster. We use <strong>Ingress-NGINX</strong> as our in-cluster controller to route traffic to specific service pods.</p>
+                        <p>Scaling is reactive: the <strong>Horizontal Pod Autoscaler (HPA)</strong> monitors CPU and Memory metrics, adding replicas when 5-minute averages exceed 70%. All services are designed to be stateless, storing session data in Redis to allow any pod to handle any request.</p>
+                    </div>
+
+                    <div class="level-details elaboration">
+                        <h4>Level 3 — Elaboration</h4>
+                        
+                        <h5>Request Execution Flow (Hot Path)</h5>
+                        <p>A typical <code>GET /tasks</code> request involves:</p>
+                        <ol>
+                            <li>ALB Terminates TLS 1.3.</li>
+                            <li>Kong Gateway performs JWT validation.</li>
+                            <li>Kong forwards to Todo Service Pod via internal K8s Service DNS.</li>
+                            <li>Todo Service checks Redis for a cached response (TTL 60s).</li>
+                            <li>If cache miss, Todo Service queries RDS PostgreSQL.</li>
+                        </ol>
+                        
+                        <h5>Resilience & Failure Modes</h5>
+                        <p>We implement the <strong>Circuit Breaker pattern</strong> (via Resilience4j or similar) between the Todo Service and the Database. If RDS latency spikes above 2s for 5 consecutive requests, the circuit opens and the service returns a <code>503 Service Unavailable</code> or a cached partial response, preventing pod resource exhaustion.</p>
+
+                        <h5>Concurrency & Thread Model</h5>
+                        <p>The <strong>Real-time Sync Engine</strong> (Elixir/Phoenix) uses the Erlang VM's 'Actor Model' to manage 50,000+ simultaneous WebSocket connections per node. The <strong>Todo Service</strong> (Node.js) uses a single-threaded non-blocking event loop, which is why we strictly offload CPU-intensive tasks (like JSON schema validation for large lists) to a background worker pool.</p>
+
+                        <h5>Resource Management per Pod</h5>
+                        <ul>
+                            <li><strong>Todo Service:</strong> 256Mi Memory Request, 512Mi Limit. GC tuning optimized for 'throughput' over 'latency'.</li>
+                            <li><strong>User Service:</strong> 128Mi Memory Request, 256Mi Limit.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>The Lenses & Levels Architecture Documentation Model &copy; 2026</p>
+    </footer>
+</body>
+</html>

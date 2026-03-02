@@ -1,0 +1,306 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;700&display=swap');
+
+/* CSS Variables for Theme - Minimal, Sleek, Modern, Reduced Contrast */
+:root {
+    --primary-color: #5c6f80; /* Medium slate grey for branding/primary elements */
+    --accent-color: #7aa5ce;  /* Soft steel blue for highlights */
+    --text-color-dark: #3c4a56; /* Dark slate grey for main text */
+    --text-color-light: #ffffff; /* White for light text */
+    --background-color-light: #fcfcfc; /* Soft white */
+    --background-color-offwhite: #f5f7f9; /* Very light blue-grey */
+    --border-color-light: #e0e6eb; /* Subtle border */
+    --border-color-medium: #d0d8e0;
+    --shadow-light: 0 1px 6px rgba(0, 0, 0, 0.03); /* Lighter shadow */
+    --shadow-medium: 0 3px 12px rgba(0, 0, 0, 0.06); /* Lighter shadow */
+
+    /* More subtle colors for level indicators */
+    --level-intro-color: rgba(124, 179, 152, 0.5); /* Light translucent green */
+    --level-orientation-color: rgba(230, 179, 126, 0.5); /* Light translucent orange */
+    --level-elaboration-color: rgba(211, 140, 140, 0.5); /* Light translucent red */
+}
+
+/* General Body Styles */
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color-offwhite);
+    color: var(--text-color-dark);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    line-height: 1.3;
+}
+
+h1 { font-size: 2.2em; font-weight: 700;}
+h2 { font-size: 1.8em; font-weight: 700;}
+h3 { font-size: 1.4em; font-weight: 700;}
+h4 { font-size: 1.1em; font-weight: 700;}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* Links */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+a:hover {
+    color: var(--primary-color);
+}
+
+/* Layout Wrapper */
+.wrapper {
+    display: flex;
+    flex: 1;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 260px; /* Slightly narrower sidebar */
+    background: var(--background-color-light); /* Soft white sidebar */
+    color: var(--primary-color);
+    padding: 25px 0; /* Adjust padding */
+    box-shadow: var(--shadow-light); /* Subtle shadow */
+    flex-shrink: 0;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color-light); /* Light border */
+}
+
+.sidebar #branding {
+    margin-bottom: 35px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.sidebar #branding h1 {
+    color: var(--primary-color);
+    font-size: 1.6em;
+    margin: 0;
+}
+
+.sidebar #branding .highlight {
+    color: var(--accent-color);
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav > ul > li { /* Top level list items */
+    margin-bottom: 3px;
+}
+
+.sidebar nav ul li a {
+    display: block;
+    color: var(--primary-color);
+    padding: 10px 25px; /* More horizontal padding */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: var(--background-color-offwhite);
+    color: var(--accent-color);
+}
+
+.sidebar nav ul li.current > a {
+    background-color: var(--accent-color);
+    color: var(--text-color-light);
+    font-weight: 700;
+}
+
+.sidebar nav .sub-menu {
+    list-style: none;
+    padding-left: 0; /* Remove default padding */
+    margin-top: 5px;
+    border-left: 3px solid var(--border-color-light); /* Accent border for sub-menu */
+    margin-left: 25px; /* Indent sub-menu */
+}
+
+.sidebar nav .sub-menu li a {
+    padding: 8px 15px; /* Adjust sub-menu link padding */
+    font-size: 0.9em;
+    color: var(--text-color-dark);
+}
+
+.sidebar nav .sub-menu li a:hover {
+    background-color: var(--border-color-light);
+    color: var(--primary-color);
+}
+
+.sidebar nav .sub-menu li.current a {
+    background-color: var(--accent-color);
+    color: var(--text-color-light);
+    font-weight: 400; /* Regular weight for sub-menu current */
+}
+
+/* Main Content Area */
+.main-content-area {
+    flex-grow: 1;
+    padding: 30px; /* Reduced padding */
+    background: var(--background-color-offwhite);
+    overflow-y: auto;
+}
+
+.main-content {
+    max-width: 960px; /* Slightly wider content for more modern feel */
+    margin: 0 auto;
+    padding: 30px; /* Generous internal padding */
+    background: var(--background-color-light);
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium);
+}
+
+/* Specific Page Element Styles */
+.lens-list ul, .level-details ul {
+    list-style: none;
+    padding: 0;
+}
+.lens-list li {
+    background: var(--background-color-light);
+    margin-bottom: 12px;
+    padding: 18px;
+    border: 1px solid var(--border-color-light); /* Subtle border */
+    border-radius: 6px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.lens-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+.lens-list li h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+.lens-list li p {
+    margin-bottom: 0;
+    font-size: 0.9em;
+    color: var(--text-color-dark);
+}
+
+.level-card {
+    background: var(--background-color-light);
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color-light);
+    border-radius: 6px;
+    box-shadow: var(--shadow-light);
+}
+.level-card h3 {
+    margin-top: 0;
+    color: var(--accent-color); /* Use accent color for level titles */
+    font-weight: 700;
+}
+
+.level-details {
+    background: var(--background-color-light);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid; /* Keep border-left for color coding */
+    border-radius: 6px;
+    box-shadow: var(--shadow-light);
+}
+.level-details.introduction {
+    border-color: var(--level-intro-color);
+}
+.level-details.orientation {
+    border-color: var(--level-orientation-color);
+}
+.level-details.elaboration {
+    border-color: var(--level-elaboration-color);
+}
+.level-details h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+.level-details ul {
+    margin-bottom: 0;
+    padding-left: 20px;
+    list-style: disc;
+}
+.level-details ul li {
+    margin-bottom: 5px;
+}
+
+/* SVG Icon Styling */
+.lens-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+    fill: currentColor;
+    stroke: currentColor;
+}
+.lens-hero-icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 15px;
+    vertical-align: middle;
+    fill: var(--primary-color);
+    stroke: var(--primary-color);
+}
+
+/* Home page illustration styling */
+.hero-illustration {
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+    display: block;
+    opacity: 0.9;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 0.9; transform: translateY(0); }
+}
+
+.hero-illustration .bg-rect {
+    fill: var(--background-color-offwhite);
+    stroke: var(--border-color-light);
+}
+.hero-illustration .text-levels {
+    fill: var(--primary-color);
+}
+.hero-illustration .lens-circle-1 {
+    stroke: var(--accent-color);
+}
+.hero-illustration .lens-circle-2 {
+    stroke: var(--level-intro-color);
+    opacity: 0.8;
+}
+.hero-illustration .intersect-path {
+    stroke: var(--primary-color);
+}
+.hero-illustration .text-l1, .hero-illustration .text-l2 {
+    fill: var(--primary-color);
+}
+.hero-illustration .text-lenses-main {
+    fill: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    color: var(--text-color-light);
+    background-color: var(--primary-color);
+    text-align: center;
+    flex-shrink: 0;
+    margin-top: auto;
+    font-size: 0.9em;
+}

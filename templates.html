@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates - The Lenses & Levels Architecture Documentation Model</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .template-card {
+            background: var(--background-color-light);
+            border: 1px solid var(--border-color-light);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-medium);
+        }
+        .template-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        .template-card h3 svg {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+        pre {
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            border: 1px solid var(--border-color-medium);
+            margin-top: 15px;
+        }
+        .copy-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-top: 10px;
+            transition: opacity 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .copy-button:hover {
+            opacity: 0.8;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <aside class="sidebar">
+            <div id="branding">
+                <h1>The <span class="highlight">Lenses & Levels</span> Architecture Documentation Model</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="levels.html">Levels</a></li>
+                    <li>
+                        <a href="lenses.html">Lenses</a>
+                        <ul class="sub-menu">
+                            <li><a href="lens_system.html">System Lens</a></li>
+                            <li><a href="lens_capability.html">Capability Lens</a></li>
+                            <li><a href="lens_domain.html">Domain Lens</a></li>
+                            <li><a href="lens_data.html">Data Lens</a></li>
+                            <li><a href="lens_integration.html">Integration Lens</a></li>
+                            <li><a href="lens_runtime.html">Runtime Lens</a></li>
+                            <li><a href="lens_deployment.html">Deployment Lens</a></li>
+                            <li><a href="lens_security.html">Security Lens</a></li>
+                            <li><a href="lens_quality_attributes.html">Quality Attributes Lens</a></li>
+                            <li><a href="lens_governance_decision.html">Governance & Decision Lens</a></li>
+                            <li><a href="lens_evolution.html">Evolution Lens</a></li>
+                            <li><a href="lens_ux.html">UX & Interaction Lens</a></li>
+                            <li><a href="lens_organization.html">Organization Lens</a></li>
+                            <li><a href="lens_cost.html">Cost Lens</a></li>
+                            <li><a href="lens_compliance.html">Compliance Lens</a></li>
+                        </ul>
+                    </li>
+                    <li class="current"><a href="templates.html">Templates</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-area">
+            <section class="main-content">
+                <h2>Architecture Documentation Templates</h2>
+                <p>To help you get started quickly, we provide templates for the most common documentation platforms. Choose the format that fits your team's workflow.</p>
+
+                <div class="template-card">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+                        Markdown Template
+                    </h3>
+                    <p>Ideal for <strong>Architecture-as-Code</strong>. Keep your documentation right alongside your source code in Git.</p>
+                    <button class="copy-button" onclick="downloadMarkdown()">Download .md Template</button>
+                </div>
+
+                <div class="template-card">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
+                        Confluence Template
+                    </h3>
+                    <p>Perfect for enterprise environments. Our guide helps you set up a Lenses & Levels space in Confluence.</p>
+                    <button class="copy-button" onclick="downloadConfluence()">Download Confluence Guide</button>
+                </div>
+
+                <div class="template-card">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M7 7h10M7 12h10M7 17h10" /></svg>
+                        Notion Template
+                    </h3>
+                    <p>The most flexible option. Includes built-in status tracking for your documentation progress.</p>
+                    <button class="copy-button" onclick="notionRedirect()">Duplicate Notion Template</button>
+                </div>
+
+                <div class="template-card" style="background: var(--background-color-offwhite); border-style: dashed;">
+                    <h3>Pro Tip: Living Documentation</h3>
+                    <p>Remember that for <strong>Level 3 (Elaboration)</strong>, you should rarely write new text. Instead, use these templates to <strong>embed or link</strong> to your Swagger UI, Grafana Dashboards, or source code directories.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function downloadMarkdown() {
+            const content = `# Architecture Documentation
+
+## System Lens
+### Level 1: Introduction
+### Level 2: Orientation
+### Level 3: Elaboration
+
+## Capability Lens
+### Level 1: Introduction
+... (continues for all lenses)`;
+            const blob = new Blob([content], { type: 'text/markdown' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'lenses-and-levels-template.md';
+            a.click();
+        }
+
+        function downloadConfluence() {
+            alert('Downloading Confluence Setup Guide (PDF)...');
+            // Simulating a download
+            const link = document.createElement('a');
+            link.href = 'https://example.com/confluence-guide.pdf';
+            link.download = 'confluence-guide.pdf';
+            // link.click(); // Commented out as it is an example
+        }
+
+        function notionRedirect() {
+            window.open('https://notion.so', '_blank');
+        }
+    </script>
+
+    <footer>
+        <p>The Lenses & Levels Architecture Documentation Model &copy; 2026</p>
+    </footer>
+</body>
+</html>

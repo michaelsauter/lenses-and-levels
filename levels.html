@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levels - The Lenses & Levels Architecture Documentation Model</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <aside class="sidebar">
+            <div id="branding">
+                <h1>The <span class="highlight">Lenses & Levels</span> Architecture Documentation Model</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><a href="levels.html">Levels</a></li>
+                    <li>
+                        <a href="lenses.html">Lenses</a>
+                        <ul class="sub-menu">
+                            <li><a href="lens_system.html">System Lens</a></li>
+                            <li><a href="lens_capability.html">Capability Lens</a></li>
+                            <li><a href="lens_domain.html">Domain Lens</a></li>
+                            <li><a href="lens_data.html">Data Lens</a></li>
+                            <li><a href="lens_integration.html">Integration Lens</a></li>
+                            <li><a href="lens_runtime.html">Runtime Lens</a></li>
+                            <li><a href="lens_deployment.html">Deployment Lens</a></li>
+                            <li><a href="lens_security.html">Security Lens</a></li>
+                            <li><a href="lens_quality_attributes.html">Quality Attributes Lens</a></li>
+                            <li><a href="lens_governance_decision.html">Governance & Decision Lens</a></li>
+                            <li><a href="lens_evolution.html">Evolution Lens</a></li>
+                            <li><a href="lens_ux.html">UX & Interaction Lens</a></li>
+                            <li><a href="lens_organization.html">Organization Lens</a></li>
+                            <li><a href="lens_cost.html">Cost Lens</a></li>
+                            <li><a href="lens_compliance.html">Compliance Lens</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="templates.html">Templates</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-area">
+            <section class="main-content">
+                <h2>Documentation Levels</h2>
+                <p>For each architectural lens, information is categorized into three consistent levels of detail. This approach ensures that documentation caters to diverse audiences, from those seeking a high-level overview to those requiring deep technical specifications for implementation or audit.</p>
+
+                <div class="level-card">
+                    <h3>Level 1 — Introduction</h3>
+                    <h4>Purpose:</h4>
+                    <p>Build basic mental model.</p>
+                    <h4>Audience:</h4>
+                    <p>Newcomers, executives, adjacent teams.</p>
+                    <h4>Characteristics:</h4>
+                    <ul>
+                        <li>Narrative over detail</li>
+                        <li>Visual first</li>
+                        <li>No prerequisite knowledge assumed</li>
+                        <li>Explains why this lens matters</li>
+                    </ul>
+                </div>
+
+                <div class="level-card">
+                    <h3>Level 2 — Orientation</h3>
+                    <h4>Purpose:</h4>
+                    <p>Enable navigation and targeted lookup.</p>
+                    <h4>Audience:</h4>
+                    <p>Engineers, architects, reviewers.</p>
+                    <h4>Characteristics:</h4>
+                    <ul>
+                        <li>Structured overview</li>
+                        <li>Key artefact references</li>
+                        <li>Terminology defined</li>
+                        <li>Shows “where to find more”</li>
+                        <li>This level answers: “Where does X live?”</li>
+                    </ul>
+                </div>
+
+                <div class="level-card">
+                    <h3>Level 3 — Elaboration</h3>
+                    <h4>Purpose:</h4>
+                    <p>Enable implementation, analysis, or change.</p>
+                    <h4>Audience:</h4>
+                    <p>Implementers, auditors, deep reviewers.</p>
+                    <h4>Characteristics:</h4>
+                    <ul>
+                        <li>Detailed diagrams, specs, contracts</li>
+                        <li>Links to living artefacts (e.g., OpenAPI, Terraform, ADRs)</li>
+                        <li>Trade-offs documented</li>
+                        <li>Edge cases covered</li>
+                        <li>This level answers: “How exactly does this work?”</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>The Lenses & Levels Architecture Documentation Model &copy; 2026</p>
+    </footer>
+</body>
+</html>
