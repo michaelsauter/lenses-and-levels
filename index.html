@@ -46,22 +46,120 @@
             <section class="main-content">
                 <h2>Welcome to The Lenses & Levels Architecture Documentation Model</h2>
                 
-                <p>This documentation framework proposes a novel approach to software architecture documentation, combining different "lenses" of architectural concerns with consistent "levels" of detail for each lens. This two-dimensional structure aims to provide clarity and relevance to various audiences, from newcomers to deep implementers.</p>
+                <p>This documentation framework proposes a <b>novel approach to software architecture documentation</b>, combining <b>different "lenses" of architectural concerns</b> with <b>consistent "levels" of detail</b> for each lens. This <b>two-dimensional structure</b> aims to provide <b>clarity and relevance to various audiences</b>, from newcomers to deep implementers.</p>
                 
-                <h3>The Core Idea:</h3>
-                <p>Traditional architecture documentation often struggles with overwhelming detail or lack of specific focus. The "Lenses & Levels" framework addresses this by organizing documentation around two key axes:</p>
+                <!-- Custom High-Tech Architecture Grid Illustration (Larger, Centered, 5 Lenses + Continuation, Single Border) -->
+                <svg class="hero-illustration" viewBox="0 0 650 350" style="background: var(--bg-page); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); width: 100%; height: auto; max-width: 680px; margin: 40px auto; padding: 25px; display: block;">
+                    <!-- Axis Titles -->
+                    <text x="35" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="10" fill="var(--text-muted)" letter-spacing="0.08em">ARCHITECTURAL LENSES</text>
+                    <text x="380" y="338" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="10" fill="var(--accent-color)" letter-spacing="0.08em" text-anchor="middle">DETAIL LEVELS</text>
+                    
+                    <!-- Exact Level Column Headers -->
+                    <text x="240" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="var(--level-1-text)" text-anchor="middle">Introduction</text>
+                    <text x="380" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="var(--level-2-text)" text-anchor="middle">Orientation</text>
+                    <text x="520" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="var(--level-3-text)" text-anchor="middle">Elaboration</text>
+                    
+                    <!-- Grid Lanes (Lenses Rows) -->
+                    <line x1="30" y1="90" x2="590" y2="90" stroke="var(--border-subtle)" stroke-width="1.5" />
+                    <line x1="30" y1="132" x2="590" y2="132" stroke="var(--border-subtle)" stroke-width="1.5" />
+                    <line x1="30" y1="174" x2="590" y2="174" stroke="var(--border-subtle)" stroke-width="1.5" />
+                    <line x1="30" y1="216" x2="590" y2="216" stroke="var(--border-subtle)" stroke-width="1.5" />
+                    <line x1="30" y1="258" x2="590" y2="258" stroke="var(--border-subtle)" stroke-width="1.5" />
+                    <line x1="30" y1="300" x2="590" y2="300" stroke="var(--border-subtle)" stroke-width="1.5" stroke-dasharray="3 3" />
+                    
+                    <!-- Grid Columns (Levels) -->
+                    <line x1="240" y1="65" x2="240" y2="315" stroke="var(--border-subtle)" stroke-dasharray="4 4" />
+                    <line x1="380" y1="65" x2="380" y2="315" stroke="var(--border-subtle)" stroke-dasharray="4 4" />
+                    <line x1="520" y1="65" x2="520" y2="315" stroke="var(--border-subtle)" stroke-dasharray="4 4" />
+                    
+                    <!-- Row Labels (Lenses) -->
+                    <text x="35" y="94" font-family="'DM Sans', sans-serif" font-weight="600" font-size="11" fill="var(--text-primary)">System Lens</text>
+                    <text x="35" y="136" font-family="'DM Sans', sans-serif" font-weight="600" font-size="11" fill="var(--text-primary)">Capability Lens</text>
+                    <text x="35" y="178" font-family="'DM Sans', sans-serif" font-weight="600" font-size="11" fill="var(--text-primary)">Data Lens</text>
+                    <text x="35" y="220" font-family="'DM Sans', sans-serif" font-weight="600" font-size="11" fill="var(--text-primary)">Security Lens</text>
+                    <text x="35" y="262" font-family="'DM Sans', sans-serif" font-weight="600" font-size="11" fill="var(--text-primary)">Cost Lens</text>
+                    <text x="35" y="304" font-family="'DM Sans', sans-serif" font-weight="500" font-size="11" fill="var(--text-muted)" font-style="italic">+ 9 more Lenses...</text>
+                    
+                    <!-- Row Intersecting Lines (Connecting Dots) -->
+                    <path d="M240,90 L380,90 L520,90" stroke="var(--accent-color)" stroke-width="1.5" fill="none" opacity="0.25" class="intersect-path" />
+                    <path d="M240,132 L380,132 L520,132" stroke="var(--accent-color)" stroke-width="1.5" fill="none" opacity="0.25" class="intersect-path" />
+                    <path d="M240,174 L380,174 L520,174" stroke="var(--accent-color)" stroke-width="1.5" fill="none" opacity="0.25" class="intersect-path" />
+                    <path d="M240,216 L380,216 L520,216" stroke="var(--accent-color)" stroke-width="1.5" fill="none" opacity="0.25" class="intersect-path" />
+                    <path d="M240,258 L380,258 L520,258" stroke="var(--accent-color)" stroke-width="1.5" fill="none" opacity="0.25" class="intersect-path" />
+                    
+                    <!-- Row Dots Matrix (Intersection Nodes) -->
+                    <!-- System Lens Dots -->
+                    <circle cx="240" cy="90" r="8" fill="var(--level-1-bg)" stroke="var(--level-1-accent)" stroke-width="2" class="lens-circle-1" />
+                    <circle cx="240" cy="90" r="2.5" fill="var(--level-1-accent)" />
+                    <circle cx="380" cy="90" r="8" fill="var(--level-2-bg)" stroke="var(--level-2-accent)" stroke-width="2" class="lens-circle-2" />
+                    <circle cx="380" cy="90" r="2.5" fill="var(--level-2-accent)" />
+                    <circle cx="520" cy="90" r="8" fill="var(--level-3-bg)" stroke="var(--level-3-accent)" stroke-width="2" />
+                    <circle cx="520" cy="90" r="2.5" fill="var(--level-3-accent)" />
+
+                    <!-- Capability Lens Dots -->
+                    <circle cx="240" cy="132" r="8" fill="var(--level-1-bg)" stroke="var(--level-1-accent)" stroke-width="2" class="lens-circle-1" />
+                    <circle cx="240" cy="132" r="2.5" fill="var(--level-1-accent)" />
+                    <circle cx="380" cy="132" r="8" fill="var(--level-2-bg)" stroke="var(--level-2-accent)" stroke-width="2" class="lens-circle-2" />
+                    <circle cx="380" cy="132" r="2.5" fill="var(--level-2-accent)" />
+                    <circle cx="520" cy="132" r="8" fill="var(--level-3-bg)" stroke="var(--level-3-accent)" stroke-width="2" />
+                    <circle cx="520" cy="132" r="2.5" fill="var(--level-3-accent)" />
+
+                    <!-- Data Lens Dots -->
+                    <circle cx="240" cy="174" r="8" fill="var(--level-1-bg)" stroke="var(--level-1-accent)" stroke-width="2" class="lens-circle-1" />
+                    <circle cx="240" cy="174" r="2.5" fill="var(--level-1-accent)" />
+                    <circle cx="380" cy="174" r="8" fill="var(--level-2-bg)" stroke="var(--level-2-accent)" stroke-width="2" class="lens-circle-2" />
+                    <circle cx="380" cy="174" r="2.5" fill="var(--level-2-accent)" />
+                    <circle cx="520" cy="174" r="8" fill="var(--level-3-bg)" stroke="var(--level-3-accent)" stroke-width="2" />
+                    <circle cx="520" cy="174" r="2.5" fill="var(--level-3-accent)" />
+
+                    <!-- Security Lens Dots -->
+                    <circle cx="240" cy="216" r="8" fill="var(--level-1-bg)" stroke="var(--level-1-accent)" stroke-width="2" class="lens-circle-1" />
+                    <circle cx="240" cy="216" r="2.5" fill="var(--level-1-accent)" />
+                    <circle cx="380" cy="216" r="8" fill="var(--level-2-bg)" stroke="var(--level-2-accent)" stroke-width="2" class="lens-circle-2" />
+                    <circle cx="380" cy="216" r="2.5" fill="var(--level-2-accent)" />
+                    <circle cx="520" cy="216" r="8" fill="var(--level-3-bg)" stroke="var(--level-3-accent)" stroke-width="2" />
+                    <circle cx="520" cy="216" r="2.5" fill="var(--level-3-accent)" />
+
+                    <!-- Cost Lens Dots -->
+                    <circle cx="240" cy="258" r="8" fill="var(--level-1-bg)" stroke="var(--level-1-accent)" stroke-width="2" class="lens-circle-1" />
+                    <circle cx="240" cy="258" r="2.5" fill="var(--level-1-accent)" />
+                    <circle cx="380" cy="258" r="8" fill="var(--level-2-bg)" stroke="var(--level-2-accent)" stroke-width="2" class="lens-circle-2" />
+                    <circle cx="380" cy="258" r="2.5" fill="var(--level-2-accent)" />
+                    <circle cx="520" cy="258" r="8" fill="var(--level-3-bg)" stroke="var(--level-3-accent)" stroke-width="2" />
+                    <circle cx="520" cy="258" r="2.5" fill="var(--level-3-accent)" />
+
+                    <!-- Faded Intersection Indicator Nodes showing continuation down the grid -->
+                    <circle cx="240" cy="300" r="3.5" fill="var(--level-1-accent)" opacity="0.45" />
+                    <circle cx="380" cy="300" r="3.5" fill="var(--level-2-accent)" opacity="0.45" />
+                    <circle cx="520" cy="300" r="3.5" fill="var(--level-3-accent)" opacity="0.45" />
+                </svg>
+                
+                <h3>The Core Idea</h3>
+                <p>Traditional architecture documentation often struggles with overwhelming detail or lack of specific focus. The "Lenses & Levels" framework addresses this by <b>organizing documentation around two key axes</b>:</p>
                 <ul>
-                    <li><strong>Lenses:</strong> Each lens represents a distinct architectural concern, such as System, Capability, Data, Security, etc. This allows stakeholders to focus on the aspects most relevant to their interests.</li>
-                    <li><strong>Levels:</strong> For each lens, information is presented across three consistent levels of detail: Introduction, Orientation, and Elaboration. This ensures that the documentation scales with the audience's need for information, from a high-level overview to deep technical specifications.</li>
+                    <li><strong>Lenses:</strong> Each lens represents a <b>distinct architectural concern</b>, such as System, Capability, Data, Security, etc. This allows stakeholders to <b>focus on the aspects most relevant to their interests</b> without distraction.</li>
+                    <li><strong>Levels:</strong> For each lens, information is structured across <b>three consistent levels of detail</b>: <b>Introduction</b>, <b>Orientation</b>, and <b>Elaboration</b>. This ensures that the documentation <b>scales with the reader's needs</b>, starting with simple mental models and ending with exhaustive specifications.</li>
                 </ul>
 
-                <h3>Benefits:</h3>
-                <ul>
-                    <li><strong>Targeted Information:</strong> Readers can quickly find information relevant to their role and current need, without being bogged down by irrelevant details.</li>
-                    <li><strong>Consistent Structure:</strong> A predictable structure across all lenses makes the documentation easy to navigate and understand.</li>
-                    <li><strong>Scalability:</strong> Accommodates various levels of detail, from executive summaries to implementation-level specifics, and links naturally to living artifacts.</li>
-                    <li><strong>Comprehensiveness:</strong> Ensures all critical architectural concerns are covered through dedicated lenses.</li>
-                </ul>
+                <h3>Benefits of the Model</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h4>Targeted Information</h4>
+                        <p>Readers <b>quickly find information relevant to their role</b> and current context, without being bogged down by irrelevant detail.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>Consistent Structure</h4>
+                        <p>A <b>predictable structure across all lenses</b> makes the entire directory incredibly easy to navigate, master, and audit.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>Frictionless Scalability</h4>
+                        <p>Accommodates various levels of detail and <b>links directly to living artifacts (APIs, Code, Terraform)</b> instead of duplication.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>Complete Coverage</h4>
+                        <p>Dedicated lenses ensure that <b>critical architectural concerns (like cost, compliance, team topology)</b> are never overlooked.</p>
+                    </div>
+                </div>
 
                 <p>Explore the <a href="levels.html">Levels</a> and <a href="lenses.html">Lenses</a> sections to understand the framework in detail.</p>
                 
