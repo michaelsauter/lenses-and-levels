@@ -38,6 +38,7 @@
                     </li>
                     <li><a href="standards.html">Standards Mapping</a></li>
                     <li class="current"><a href="templates.html">Templates</a></li>
+                    <li><a href="skill.html">LLM Skill</a></li>
                 </ul>
             </nav>
         </aside>
@@ -46,6 +47,18 @@
             <section class="main-content">
                 <h2>Architecture Documentation Templates</h2>
                 <p>To help you get started quickly, we provide templates for the most common documentation platforms. Choose the format that fits your team's workflow.</p>
+
+                <div class="template-card">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" /></svg>
+                        LLM & Agent Skill
+                    </h3>
+                    <p>Author and audit documentation with your AI assistant. Automatically decomposes unstructured text into lenses and levels, and audits existing documentation for cross-lens duplication and overview bloat.</p>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 15px;">
+                        <a href="skill.html" class="copy-button" style="text-decoration: none;">View Skill Guide</a>
+                        <button class="copy-button" onclick="downloadSkillMd()" style="background: var(--secondary-color); box-shadow: none;">Download SKILL.md</button>
+                    </div>
+                </div>
 
                 <div class="template-card">
                     <h3>
@@ -113,6 +126,32 @@
 
         function notionRedirect() {
             window.open('https://notion.so', '_blank');
+        }
+
+        function downloadSkillMd() {
+            const skillContent = `---
+name: lenses-and-levels
+description: Author, decompose, structure, and audit architecture documentation using the Lenses & Levels framework. Use when given unstructured text to split into architectural lenses and detail levels, or when given a documentation path to assess whether content is in the correct lens and level, eliminate cross-lens duplication, verify downward self-containment, and enforce overview discipline.
+---
+
+# Lenses & Levels Architecture Documentation Skill
+
+The framework organizes architecture documentation along two orthogonal dimensions:
+1. Lenses (15 architectural concerns)
+2. Levels (3 consistent zoom levels: Level 1 Overview, Level 2 Map, Level 3 Detail)
+
+## The 4 Golden Principles:
+1. Non-Duplication Between Lenses (Single Source of Truth & References)
+2. Downward Self-Containment (Zero Upward Dependencies)
+3. Overview Discipline (Level 1 Centrality Filter)
+4. Living Artifact Anchoring (Level 3 Reality)`;
+
+            const blob = new Blob([skillContent], { type: 'text/markdown' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'SKILL.md';
+            a.click();
         }
     </script>
 
