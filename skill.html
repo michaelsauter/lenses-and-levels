@@ -113,7 +113,7 @@
                     The Lenses & Levels LLM Skill
                 </h2>
                 <p>
-                    The <strong>Lenses & Levels LLM Skill</strong> equips AI coding assistants and language models (such as Google Antigravity, Claude Code, Cursor, Copilot, or ChatGPT) 
+                    The <strong>Lenses & Levels LLM Skill</strong> equips AI coding assistants and language models (such as <strong>Claude Code</strong>, Cursor, Copilot, ChatGPT, and other agentic tools) 
                     with instructions to <strong>author, decompose, and audit architecture documentation</strong> according to the framework.
                 </p>
 
@@ -188,23 +188,37 @@
                     </div>
                 </div>
 
-                <h3>Quick Start & Installation</h3>
+                <h3>Installation & Usage</h3>
+                <p>
+                    Add the skill into your project's <code>.skills/</code> directory (the <code>.skills/</code> directory is kept local and uncommitted via <code>.gitignore</code>):
+                </p>
 
-                <h4>1. Google Antigravity & Agentic CLI</h4>
-                <p>If you use <strong>Antigravity</strong>, the skill is already pre-configured in this repository. Simply clone the repository or copy the skill directory into your project:</p>
-                
                 <div class="code-snippet-box">
                     <button class="code-copy-btn" onclick="copyCliCommand()">Copy</button>
-                    <pre><code id="cli-command"># Copy the skill into your project's customization directory
-mkdir -p .agents/skills
-cp -r /path/to/lenses-and-levels/skills/lenses-and-levels .agents/skills/
-
-# Run the automated auditor anytime
-python3 .agents/skills/lenses-and-levels/scripts/audit_docs.py --path ./docs</code></pre>
+                    <pre><code id="cli-command"># Install into your project's .skills directory (uncommitted)
+mkdir -p .skills
+git clone --depth 1 https://github.com/michaelsauter/lenses-and-levels.git /tmp/l-and-l && \
+  cp -r /tmp/l-and-l/skills/lenses-and-levels .skills/ && \
+  rm -rf /tmp/l-and-l</code></pre>
                 </div>
 
-                <h4>2. Claude Code, Cursor, Copilot & ChatGPT</h4>
-                <p>You can use the skill instructions with any conversational or coding assistant by pointing it to the <code>SKILL.md</code> file or adding it to your custom instructions / project prompt.</p>
+                <p>
+                    Once installed, ask <strong>Claude Code</strong>, Cursor, or your preferred assistant to use it:
+                </p>
+                <ul>
+                    <li><strong>Decomposing unstructured text:</strong> <em>"Read <code>.skills/lenses-and-levels/SKILL.md</code> and split the following text into the appropriate lenses and levels."</em></li>
+                    <li><strong>Auditing existing documentation:</strong> <em>"Using <code>.skills/lenses-and-levels/SKILL.md</code>, audit the documentation in <code>./docs</code> for lens placement, overview bloat, and cross-lens duplication."</em></li>
+                </ul>
+
+                <p>
+                    You can also run the bundled auditor script directly from your terminal:
+                </p>
+                <div class="code-snippet-box">
+                    <pre><code>python3 .skills/lenses-and-levels/scripts/audit_docs.py --path ./docs</code></pre>
+                </div>
+
+                <h4>Using with Web & Chat LLMs</h4>
+                <p>For chat-based assistants (Claude.ai, ChatGPT), you can copy the prompt instructions directly:</p>
 
                 <div class="code-snippet-box">
                     <button class="code-copy-btn" onclick="copyPromptSnippet()">Copy Prompt</button>
