@@ -75,8 +75,8 @@
 
                 <h3>General Level Guidance</h3>
 
-                <div class="level-details introduction">
-                    <h4>Level 1 — Introduction</h4>
+                <div class="level-details overview">
+                    <h4>Level 1 — Overview</h4>
                     <ul>
                         <li>Who are the target user personas and what is their primary interaction model?</li>
                         <li>What is the 'Visual Language' or brand identity of the interface?</li>
@@ -85,8 +85,8 @@
                     <p><em>Common Fulfillment: A Design Vision statement and high-level User Journey maps.</em></p>
                 </div>
 
-                <div class="level-details orientation">
-                    <h4>Level 2 — Orientation</h4>
+                <div class="level-details map">
+                    <h4>Level 2 — Map</h4>
                     <ul>
                         <li>What design system or component library is used (e.g. Material UI, Tailwind)?</li>
                         <li>How is the frontend structured (e.g. Micro-frontends, SPA, SSR)?</li>
@@ -95,8 +95,8 @@
                     <p><em>Common Fulfillment: Link to Figma files and a Storybook instance showing the component library.</em></p>
                 </div>
 
-                <div class="level-details elaboration">
-                    <h4>Level 3 — Elaboration</h4>
+                <div class="level-details detail">
+                    <h4>Level 3 — Detail</h4>
                     <ul>
                         <li>How is frontend state managed (e.g. Redux, XState, TanStack Query)?</li>
                         <li>What is the specific accessibility (WCAG) compliance strategy?</li>
@@ -108,18 +108,18 @@
                 <div class="example-section">
                     <h3>Example: Completely over-engineered Todo-App</h3>
 
-                    <div class="level-details introduction">
-                        <h4>Level 1 — Introduction</h4>
+                    <div class="level-details overview">
+                        <h4>Level 1 — Overview</h4>
                         <p>The UI is designed for the <strong>'High-Velocity Professional'</strong> who values keyboard-first interactions and instant feedback. The visual style is 'Hyper-Minimalist' to reduce cognitive load during task management.</p>
                     </div>
 
-                    <div class="level-details orientation">
-                        <h4>Level 2 — Orientation</h4>
+                    <div class="level-details map">
+                        <h4>Level 2 — Map</h4>
                         <p>We use a custom design system built on <strong>Tailwind CSS</strong> and <strong>Radix UI</strong> primitives. All UI components are documented in our internal <strong>Storybook</strong>. The architecture is a React SPA using <strong>Next.js (App Router)</strong> for optimized loading and SEO of public lists.</p>
                     </div>
 
-                    <div class="level-details elaboration">
-                        <h4>Level 3 — Elaboration</h4>
+                    <div class="level-details detail">
+                        <h4>Level 3 — Detail</h4>
                         
                         <h5>Frontend State Strategy</h5>
                         <p>We use <strong>TanStack Query</strong> for server-state synchronization with optimistic UI updates. When a user marks a task as done, the UI reflects the change immediately before the API response is received, reverting only on failure.</p>

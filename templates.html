@@ -76,7 +76,7 @@
 
                 <div class="template-card" style="background: var(--background-color-offwhite); border-style: dashed;">
                     <h3>Pro Tip: Living Documentation</h3>
-                    <p>Remember that for <strong>Level 3 (Elaboration)</strong>, you should rarely write new text. Instead, use these templates to <strong>embed or link</strong> to your Swagger UI, Grafana Dashboards, or source code directories.</p>
+                    <p>Remember that for <strong>Level 3 (Detail)</strong>, you should rarely write new text. Instead, use these templates to <strong>embed or link</strong> to your Swagger UI, Grafana Dashboards, or source code directories.</p>
                 </div>
             </section>
         </main>
@@ -87,12 +87,12 @@
             const content = `# Architecture Documentation
 
 ## System Lens
-### Level 1: Introduction
-### Level 2: Orientation
-### Level 3: Elaboration
+### Level 1: Overview
+### Level 2: Map
+### Level 3: Detail
 
 ## Capability Lens
-### Level 1: Introduction
+### Level 1: Overview
 ... (continues for all lenses)`;
             const blob = new Blob([content], { type: 'text/markdown' });
             const url = window.URL.createObjectURL(blob);

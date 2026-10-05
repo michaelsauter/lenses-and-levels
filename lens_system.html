@@ -75,8 +75,8 @@
 
                 <h3>General Level Guidance</h3>
 
-                <div class="level-details introduction">
-                    <h4>Level 1 — Introduction</h4>
+                <div class="level-details overview">
+                    <h4>Level 1 — Overview</h4>
                     <p>Corresponds to the <strong>C4 System Context Diagram</strong>. Focus on the high-level structural position of the system in the world.</p>
                     <ul>
                         <li>Who are the primary human actors (People) that use the system?</li>
@@ -86,8 +86,8 @@
                     <p><em>Common Fulfillment: A high-level C4 System Context diagram and a concise description of the system's role.</em></p>
                 </div>
 
-                <div class="level-details orientation">
-                    <h4>Level 2 — Orientation</h4>
+                <div class="level-details map">
+                    <h4>Level 2 — Map</h4>
                     <p>Corresponds to the <strong>C4 Container Diagram</strong>. Focus on the high-level technical decomposition into deployable units.</p>
                     <ul>
                         <li>How is the system divided into autonomous, deployable units (Containers)?</li>
@@ -98,8 +98,8 @@
                     <p><em>Common Fulfillment: A C4 Container diagram showing the shape of the architecture.</em></p>
                 </div>
 
-                <div class="level-details elaboration">
-                    <h4>Level 3 — Elaboration</h4>
+                <div class="level-details detail">
+                    <h4>Level 3 — Detail</h4>
                     <p>Corresponds to the <strong>C4 Component Diagram</strong>. Focus on the internal building blocks of a specific container.</p>
                     <ul>
                         <li>What are the internal building blocks (Components) of a specific container?</li>
@@ -112,8 +112,8 @@
                 <div class="example-section">
                     <h3>Example: Completely over-engineered Todo-App</h3>
 
-                    <div class="level-details introduction">
-                        <h4>Level 1 — Introduction (System Context)</h4>
+                    <div class="level-details overview">
+                        <h4>Level 1 — Overview (System Context)</h4>
                         <p>The Todo Application is a cloud-native platform sat within the AWS ecosystem that allows users to manage tasks across web and mobile devices via a centralized API.</p>
                         
                         <svg viewBox="0 0 600 300" style="background: white; border: 1px solid var(--border-color-light); border-radius: 8px; margin: 20px 0; width: 100%; height: auto;">
@@ -151,8 +151,8 @@
                         </svg>
                     </div>
 
-                    <div class="level-details orientation">
-                        <h4>Level 2 — Orientation (Containers)</h4>
+                    <div class="level-details map">
+                        <h4>Level 2 — Map (Containers)</h4>
                         <p>The system is architected as a set of autonomous microservices deployed into an Amazon EKS cluster. The frontend is a React-based Single Page Application (SPA) served via CloudFront, which communicates with the backend through a shared Kong API Gateway.</p>
                         
                         <svg viewBox="0 0 600 400" style="background: white; border: 1px solid var(--border-color-light); border-radius: 8px; margin: 20px 0; width: 100%; height: auto;">
@@ -197,8 +197,8 @@
                         <p>Key containers include the <strong>Todo Service</strong> (Node.js) for core task logic, the <strong>User Service</strong> (Go) for profile management, and a <strong>Real-time Sync Engine</strong> (Elixir) for WebSocket-based task updates. Each service is contained in its own Git repository and has its own isolated PostgreSQL database schema.</p>
                     </div>
 
-                    <div class="level-details elaboration">
-                        <h4>Level 3 — Elaboration (Components)</h4>
+                    <div class="level-details detail">
+                        <h4>Level 3 — Detail (Components)</h4>
                         
                         <h5>Todo Service Internal Decomposition</h5>
                         <p>The <strong>Todo Service</strong> is structured using Hexagonal Architecture (Ports and Adapters) to ensure business logic remains independent of infrastructure. The core domain handles task state transitions (e.g., 'In Progress' to 'Completed') and recurring task generation logic.</p>

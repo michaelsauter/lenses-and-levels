@@ -75,8 +75,8 @@
 
                 <h3>General Level Guidance</h3>
 
-                <div class="level-details introduction">
-                    <h4>Level 1 — Introduction</h4>
+                <div class="level-details overview">
+                    <h4>Level 1 — Overview</h4>
                     <ul>
                         <li>How does the system behave when it is 'alive'?</li>
                         <li>Is it primarily synchronous, asynchronous, or batch-oriented?</li>
@@ -85,8 +85,8 @@
                     <p><em>Common Fulfillment: A high-level execution flow diagram or 'Request Journey' narrative.</em></p>
                 </div>
 
-                <div class="level-details orientation">
-                    <h4>Level 2 — Orientation</h4>
+                <div class="level-details map">
+                    <h4>Level 2 — Map</h4>
                     <ul>
                         <li>How is traffic routed through the system components?</li>
                         <li>How does the system scale (or fail) under load?</li>
@@ -95,8 +95,8 @@
                     <p><em>Common Fulfillment: Links to core Monitoring Dashboards (e.g., Grafana, Datadog) and scaling policy definitions (HPA).</em></p>
                 </div>
 
-                <div class="level-details elaboration">
-                    <h4>Level 3 — Elaboration</h4>
+                <div class="level-details detail">
+                    <h4>Level 3 — Detail</h4>
                     <ul>
                         <li>How exactly does the system handle failures (e.g., Circuit Breakers, Bulkheads)?</li>
                         <li>What are the specific resource limits (CPU/Memory) and GC settings for the processes?</li>
@@ -108,19 +108,19 @@
                 <div class="example-section">
                     <h3>Example: Completely over-engineered Todo-App</h3>
 
-                    <div class="level-details introduction">
-                        <h4>Level 1 — Introduction</h4>
+                    <div class="level-details overview">
+                        <h4>Level 1 — Overview</h4>
                         <p>The Todo system is a <strong>highly concurrent, stateless microservices environment</strong> designed to scale horizontally across multiple availability zones under varying user loads.</p>
                     </div>
 
-                    <div class="level-details orientation">
-                        <h4>Level 2 — Orientation</h4>
+                    <div class="level-details map">
+                        <h4>Level 2 — Map</h4>
                         <p>The runtime behavior is managed by <strong>Kubernetes</strong>. Requests follow a path from the user's browser to CloudFront (CDN), then through an Application Load Balancer (ALB) to the EKS cluster. We use <strong>Ingress-NGINX</strong> as our in-cluster controller to route traffic to specific service pods.</p>
                         <p>Scaling is reactive: the <strong>Horizontal Pod Autoscaler (HPA)</strong> monitors CPU and Memory metrics, adding replicas when 5-minute averages exceed 70%. All services are designed to be stateless, storing session data in Redis to allow any pod to handle any request.</p>
                     </div>
 
-                    <div class="level-details elaboration">
-                        <h4>Level 3 — Elaboration</h4>
+                    <div class="level-details detail">
+                        <h4>Level 3 — Detail</h4>
                         
                         <h5>Request Execution Flow (Hot Path)</h5>
                         <p>A typical <code>GET /tasks</code> request involves:</p>

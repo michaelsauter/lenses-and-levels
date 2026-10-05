@@ -75,8 +75,8 @@
 
                 <h3>General Level Guidance</h3>
 
-                <div class="level-details introduction">
-                    <h4>Level 1 — Introduction</h4>
+                <div class="level-details overview">
+                    <h4>Level 1 — Overview</h4>
                     <ul>
                         <li>Which specific 'Qualities of Service' (e.g. Availability, Scalability, Security) are the primary drivers for the architectural design?</li>
                         <li>What are the most critical runtime constraints or performance targets?</li>
@@ -85,8 +85,8 @@
                     <p><em>Common Fulfillment: A prioritized list of Quality Goals and a brief 'Why' statement for each.</em></p>
                 </div>
 
-                <div class="level-details orientation">
-                    <h4>Level 2 — Orientation</h4>
+                <div class="level-details map">
+                    <h4>Level 2 — Map</h4>
                     <ul>
                         <li>What is the overall strategy for measuring and alerting on these qualities?</li>
                         <li>Which high-impact scenarios (e.g. 'Complete Data Center Outage', '10x Traffic Spike') is the system designed to survive?</li>
@@ -95,8 +95,8 @@
                     <p><em>Common Fulfillment: A set of high-level Quality Attribute Scenarios and links to documented trade-off analyses.</em></p>
                 </div>
 
-                <div class="level-details elaboration">
-                    <h4>Level 3 — Elaboration</h4>
+                <div class="level-details detail">
+                    <h4>Level 3 — Detail</h4>
                     <ul>
                         <li>What are the precise Service Level Objectives (SLOs) and their associated indicators (SLIs)?</li>
                         <li>How is the observability stack configured to detect and root-cause quality violations?</li>
@@ -108,19 +108,19 @@
                 <div class="example-section">
                     <h3>Example: Completely over-engineered Todo-App</h3>
 
-                    <div class="level-details introduction">
-                        <h4>Level 1 — Introduction</h4>
+                    <div class="level-details overview">
+                        <h4>Level 1 — Overview</h4>
                         <p>The system prioritizes <strong>99.9% Global Availability</strong> and <strong>Sub-200ms Interactive Latency</strong> to provide a seamless productivity experience for power users.</p>
                     </div>
 
-                    <div class="level-details orientation">
-                        <h4>Level 2 — Orientation</h4>
+                    <div class="level-details map">
+                        <h4>Level 2 — Map</h4>
                         <p>We achieve our availability targets through <strong>Multi-AZ redundancy</strong> at every tier: ALB, EKS Node Groups, and RDS multi-region replicas. Performance is monitored using a unified observability stack: <strong>Prometheus</strong> for metrics, <strong>AWS X-Ray</strong> for tracing, and <strong>Grafana</strong> for real-time visualization.</p>
                         <p>Scalability is handled via independent scaling of the 'Read Path' (RDS Read Replicas) and 'Write Path' (Kubernetes HPA). Our core measurement strategy uses <strong>Synthetic Transactions</strong> that simulate a user adding and completing a task every 60 seconds from five global locations.</p>
                     </div>
 
-                    <div class="level-details elaboration">
-                        <h4>Level 3 — Elaboration</h4>
+                    <div class="level-details detail">
+                        <h4>Level 3 — Detail</h4>
                         
                         <h5>Service Level Objectives (SLOs)</h5>
                         <ul>

@@ -75,8 +75,8 @@
 
                 <h3>General Level Guidance</h3>
 
-                <div class="level-details introduction">
-                    <h4>Level 1 — Introduction</h4>
+                <div class="level-details overview">
+                    <h4>Level 1 — Overview</h4>
                     <ul>
                         <li>What are the core architectural principles that govern all design decisions?</li>
                         <li>What are the primary external constraints (Budget, Legal, Compliance) that limit the design space?</li>
@@ -85,8 +85,8 @@
                     <p><em>Common Fulfillment: A simple list of 'Principles to Live By' and a description of the 'Decision Process'.</em></p>
                 </div>
 
-                <div class="level-details orientation">
-                    <h4>Level 2 — Orientation</h4>
+                <div class="level-details map">
+                    <h4>Level 2 — Map</h4>
                     <ul>
                         <li>Where is the central source of truth for Architecture Decision Records (ADRs)?</li>
                         <li>What is our current 'Technology Radar' (which technologies are 'Adopt', 'Trial', or 'Hold')?</li>
@@ -95,8 +95,8 @@
                     <p><em>Common Fulfillment: Link to the Git-based ADR Registry and the team's internal Technology Radar.</em></p>
                 </div>
 
-                <div class="level-details elaboration">
-                    <h4>Level 3 — Elaboration</h4>
+                <div class="level-details detail">
+                    <h4>Level 3 — Detail</h4>
                     <ul>
                         <li>What is the full context and long-term consequence of our most significant ('Big Bet') decisions?</li>
                         <li>What specific alternatives were considered and why were they rejected for core system choices?</li>
@@ -108,19 +108,19 @@
                 <div class="example-section">
                     <h3>Example: Completely over-engineered Todo-App</h3>
 
-                    <div class="level-details introduction">
-                        <h4>Level 1 — Introduction</h4>
+                    <div class="level-details overview">
+                        <h4>Level 1 — Overview</h4>
                         <p>Our architectural evolution is governed by the principles of <strong>Service Autonomy</strong>, <strong>API-First</strong> interaction, and <strong>Immutable Infrastructure</strong> via automation.</p>
                     </div>
 
-                    <div class="level-details orientation">
-                        <h4>Level 2 — Orientation</h4>
+                    <div class="level-details map">
+                        <h4>Level 2 — Map</h4>
                         <p>We maintain a central <strong>ADR Registry</strong> in the <code>/docs/arch</code> folder of our monorepo. Every significant change to the platform must be documented as an ADR and reviewed by at least two senior architects. We also maintain a 'Technology Radar' that defines which libraries and languages are 'Adopt', 'Trial', or 'Hold'.</p>
                         <p>Currently, our core language standards are <strong>TypeScript (Node.js)</strong> for logic-heavy services and <strong>Go</strong> for high-throughput system utilities. Rust is currently in 'Trial' for the Sync Engine.</p>
                     </div>
 
-                    <div class="level-details elaboration">
-                        <h4>Level 3 — Elaboration</h4>
+                    <div class="level-details detail">
+                        <h4>Level 3 — Detail</h4>
                         
                         <h5>ADR-012: Adoption of Event Sourcing for Todo History</h5>
                         <p><strong>Context:</strong> Users requested a detailed 'Undo' feature and activity audit trails. The current relational schema is too rigid for historical reconstruction.</p>

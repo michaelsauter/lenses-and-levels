@@ -75,8 +75,8 @@
 
                 <h3>General Level Guidance</h3>
 
-                <div class="level-details introduction">
-                    <h4>Level 1 — Introduction</h4>
+                <div class="level-details overview">
+                    <h4>Level 1 — Overview</h4>
                     <ul>
                         <li>What is our primary security philosophy (e.g., Zero Trust, Defense in Depth)?</li>
                         <li>What are the most critical assets we are protecting?</li>
@@ -85,8 +85,8 @@
                     <p><em>Common Fulfillment: A high-level Security Strategy statement or 'Top 5 Security Goals' list.</em></p>
                 </div>
 
-                <div class="level-details orientation">
-                    <h4>Level 2 — Orientation</h4>
+                <div class="level-details map">
+                    <h4>Level 2 — Map</h4>
                     <ul>
                         <li>How is identity and access managed globally (AuthN/AuthZ)?</li>
                         <li>Where are the trust boundaries located in the system?</li>
@@ -95,8 +95,8 @@
                     <p><em>Common Fulfillment: A high-level Identity Architecture diagram and links to Secrets Managers (e.g., HashiCorp Vault, AWS Secrets Manager).</em></p>
                 </div>
 
-                <div class="level-details elaboration">
-                    <h4>Level 3 — Elaboration</h4>
+                <div class="level-details detail">
+                    <h4>Level 3 — Detail</h4>
                     <ul>
                         <li>What is the specific RBAC, ABAC, or Policy-as-Code matrix?</li>
                         <li>What are the detailed threat models for the highest-risk components?</li>
@@ -108,19 +108,19 @@
                 <div class="example-section">
                     <h3>Example: Completely over-engineered Todo-App</h3>
 
-                    <div class="level-details introduction">
-                        <h4>Level 1 — Introduction</h4>
+                    <div class="level-details overview">
+                        <h4>Level 1 — Overview</h4>
                         <p>Our security posture is <strong>Zero Trust</strong> by design, assuming the network is always compromised and requiring explicit cryptographic proof for every interaction.</p>
                     </div>
 
-                    <div class="level-details orientation">
-                        <h4>Level 2 — Orientation</h4>
+                    <div class="level-details map">
+                        <h4>Level 2 — Map</h4>
                         <p>The identity perimeter is managed by <strong>Auth0 (OIDC)</strong> for human users and <strong>AWS IAM (IRSA)</strong> for service-to-service authorization. Within the EKS cluster, <strong>Kubernetes Network Policies</strong> create a default-deny posture, strictly whitelisting only the necessary traffic paths (e.g., Gateway -> Todo Service).</p>
                         <p>Data is classified into three tiers: <code>Public</code> (Static assets), <code>Private</code> (User task titles), and <code>Sensitive</code> (Email addresses, Session tokens). All 'Private' and 'Sensitive' data is encrypted at rest using <strong>AWS KMS-managed keys</strong> and in transit via <strong>mTLS</strong> within the cluster mesh.</p>
                     </div>
 
-                    <div class="level-details elaboration">
-                        <h4>Level 3 — Elaboration</h4>
+                    <div class="level-details detail">
+                        <h4>Level 3 — Detail</h4>
                         
                         <h5>Detailed Threat Model: Task Disclosure</h5>
                         <p>We've identified 'Unauthorized Task Access' as a primary threat. Mitigation involves:</p>

@@ -75,8 +75,8 @@
 
                 <h3>General Level Guidance</h3>
 
-                <div class="level-details introduction">
-                    <h4>Level 1 — Introduction</h4>
+                <div class="level-details overview">
+                    <h4>Level 1 — Overview</h4>
                     <ul>
                         <li>Which regulatory frameworks (e.g. GDPR, SOC2, PCI-DSS) must this architecture comply with?</li>
                         <li>What is the overall 'Trust Posture' we present to external auditors or customers?</li>
@@ -85,8 +85,8 @@
                     <p><em>Common Fulfillment: A high-level Compliance Statement or a 'Regulatory Landscape' list.</em></p>
                 </div>
 
-                <div class="level-details orientation">
-                    <h4>Level 2 — Orientation</h4>
+                <div class="level-details map">
+                    <h4>Level 2 — Map</h4>
                     <ul>
                         <li>Where is the primary Evidence Repository for audits located?</li>
                         <li>Who is the Data Protection Officer (DPO) or Compliance Lead?</li>
@@ -95,8 +95,8 @@
                     <p><em>Common Fulfillment: Link to GRC tools (e.g. Vanta, Drata) or an internal Evidence portal.</em></p>
                 </div>
 
-                <div class="level-details elaboration">
-                    <h4>Level 3 — Elaboration</h4>
+                <div class="level-details detail">
+                    <h4>Level 3 — Detail</h4>
                     <ul>
                         <li>How do specific architectural controls map to individual regulatory requirements (The Control Matrix)?</li>
                         <li>What are the specific technical protocols for 'Data Portability' or 'Right to Erasure'?</li>
@@ -108,18 +108,18 @@
                 <div class="example-section">
                     <h3>Example: Completely over-engineered Todo-App</h3>
 
-                    <div class="level-details introduction">
-                        <h4>Level 1 — Introduction</h4>
+                    <div class="level-details overview">
+                        <h4>Level 1 — Overview</h4>
                         <p>The platform must maintain <strong>SOC2 Type II</strong> readiness and <strong>GDPR compliance</strong> to support our B2B SaaS customers who store sensitive corporate task data.</p>
                     </div>
 
-                    <div class="level-details orientation">
-                        <h4>Level 2 — Orientation</h4>
+                    <div class="level-details map">
+                        <h4>Level 2 — Map</h4>
                         <p>We use <strong>Vanta</strong> as our continuous compliance monitoring tool. Evidence for 'Logical Access' and 'Encryption' is automatically collected from AWS and Auth0. Data residency is strictly enforced: user data is stored in the region where the account was created (either <code>us-east-1</code> or <code>eu-central-1</code>).</p>
                     </div>
 
-                    <div class="level-details elaboration">
-                        <h4>Level 3 — Elaboration</h4>
+                    <div class="level-details detail">
+                        <h4>Level 3 — Detail</h4>
                         
                         <h5>GDPR: Right to Portability Implementation</h5>
                         <p>Users can trigger a <code>Data Export</code> job via the User Service. This job orchestrates a distributed query across the Todo Service and Analytics store, compiles the result into a ZIP of JSON files, and provides a signed S3 link valid for 24 hours.</p>

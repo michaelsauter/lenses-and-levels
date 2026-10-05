@@ -75,8 +75,8 @@
 
                 <h3>General Level Guidance</h3>
 
-                <div class="level-details introduction">
-                    <h4>Level 1 — Introduction</h4>
+                <div class="level-details overview">
+                    <h4>Level 1 — Overview</h4>
                     <ul>
                         <li>What is the long-term vision for the architectural state (3-5 years)?</li>
                         <li>Which major technological or structural shifts are currently in progress?</li>
@@ -85,8 +85,8 @@
                     <p><em>Common Fulfillment: A high-level vision statement and a 'Current vs. Target State' roadmap overview.</em></p>
                 </div>
 
-                <div class="level-details orientation">
-                    <h4>Level 2 — Orientation</h4>
+                <div class="level-details map">
+                    <h4>Level 2 — Map</h4>
                     <ul>
                         <li>What is the concrete architectural roadmap for the next 12 months?</li>
                         <li>Which components are currently 'Stable', 'In-Migration', or 'Deprecated'?</li>
@@ -95,8 +95,8 @@
                     <p><em>Common Fulfillment: A visual roadmap and a direct link to the Technical Debt Register (e.g. Jira/Linear board).</em></p>
                 </div>
 
-                <div class="level-details elaboration">
-                    <h4>Level 3 — Elaboration</h4>
+                <div class="level-details detail">
+                    <h4>Level 3 — Detail</h4>
                     <ul>
                         <li>What is the step-by-step procedure for safely migrating critical data or traffic?</li>
                         <li>How exactly do we sunset and decommission legacy components (e.g. 'Kill-switch' protocols)?</li>
@@ -108,19 +108,19 @@
                 <div class="example-section">
                     <h3>Example: Completely over-engineered Todo-App</h3>
 
-                    <div class="level-details introduction">
-                        <h4>Level 1 — Introduction</h4>
+                    <div class="level-details overview">
+                        <h4>Level 1 — Overview</h4>
                         <p>The Todo platform is transitioning from a <strong>Monolithic Java backend</strong> to a <strong>Go/Node.js Microservices architecture</strong> to support our 10x growth target.</p>
                     </div>
 
-                    <div class="level-details orientation">
-                        <h4>Level 2 — Orientation</h4>
+                    <div class="level-details map">
+                        <h4>Level 2 — Map</h4>
                         <p>Our evolution strategy centers on the <strong>Strangler Fig Pattern</strong>. We are gradually extracting business capabilities into new services while keeping the legacy monolith as a 'Downstream' system for un-migrated data. Our 12-month roadmap targets the decommissioning of the legacy Oracle database by Q4 2026.</p>
                         <p>A major focus is the <strong>Technical Debt Register</strong>, which currently prioritizes the 'Auth Token Refactor' and 'Legacy CSV Export' migration. These items are tracked in Jira and groomed monthly by the Architecture Guild.</p>
                     </div>
 
-                    <div class="level-details elaboration">
-                        <h4>Level 3 — Elaboration</h4>
+                    <div class="level-details detail">
+                        <h4>Level 3 — Detail</h4>
                         
                         <h5>Data Migration Plan: Monolith to PostgreSQL</h5>
                         <p>The migration of 10M+ user lists involves a zero-downtime four-phase approach:</p>

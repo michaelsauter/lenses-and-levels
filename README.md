@@ -7,7 +7,7 @@ A novel approach to software architecture documentation, combining different "le
 The "Lenses & Levels" framework organizes documentation around two key axes:
 
 - **Lenses:** Each lens represents a distinct architectural concern (System, Capability, Data, Security, etc.).
-- **Levels:** For each lens, information is presented across three consistent levels of detail: **Introduction**, **Orientation**, and **Elaboration**.
+- **Levels:** For each lens, information is presented across three consistent levels of detail: **Overview**, **Map**, and **Detail**.
 
 ## Key Features
 

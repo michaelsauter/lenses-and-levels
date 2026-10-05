@@ -75,8 +75,8 @@
 
                 <h3>General Level Guidance</h3>
 
-                <div class="level-details introduction">
-                    <h4>Level 1 — Introduction</h4>
+                <div class="level-details overview">
+                    <h4>Level 1 — Overview</h4>
                     <ul>
                         <li>What is the 'Core Domain' vision? What primary business problem is this domain solving?</li>
                         <li>What are the high-level subdomains (Core, Supporting, Generic)?</li>
@@ -85,8 +85,8 @@
                     <p><em>Common Fulfillment: A Domain Vision Statement and a high-level subdomain categorization.</em></p>
                 </div>
 
-                <div class="level-details orientation">
-                    <h4>Level 2 — Orientation</h4>
+                <div class="level-details map">
+                    <h4>Level 2 — Map</h4>
                     <ul>
                         <li>What is the core vocabulary (Ubiquitous Language) used across the domain?</li>
                         <li>How is the domain divided into Bounded Contexts?</li>
@@ -95,8 +95,8 @@
                     <p><em>Common Fulfillment: A DDD Context Map and a Glossary of core business terms.</em></p>
                 </div>
 
-                <div class="level-details elaboration">
-                    <h4>Level 3 — Elaboration</h4>
+                <div class="level-details detail">
+                    <h4>Level 3 — Detail</h4>
                     <ul>
                         <li>What are the specific Entities, Value Objects, and Aggregates within a context?</li>
                         <li>What are the hard business invariants that must never be broken?</li>
@@ -108,13 +108,13 @@
                 <div class="example-section">
                     <h3>Example: Completely over-engineered Todo-App</h3>
 
-                    <div class="level-details introduction">
-                        <h4>Level 1 — Introduction</h4>
+                    <div class="level-details overview">
+                        <h4>Level 1 — Overview</h4>
                         <p>The domain vision is to transform <strong>fragmented human intent</strong> into <strong>organized, actionable progress</strong>. We focus on the 'Core Domain' of productivity management, while delegating 'Identity' and 'Communication' to generic supporting subdomains.</p>
                     </div>
 
-                    <div class="level-details orientation">
-                        <h4>Level 2 — Orientation</h4>
+                    <div class="level-details map">
+                        <h4>Level 2 — Map</h4>
                         <p>The domain is mapped via two primary Bounded Contexts. The <strong>Productivity Context</strong> handles the 'what' and 'when' of tasks, while the <strong>Identity & Access Context</strong> handles the 'who' and 'permission'.</p>
                         
                         <h5>Ubiquitous Language (Glossary)</h5>
@@ -129,8 +129,8 @@
                         <p>The Identity context is <strong>Upstream</strong> to the Productivity context, providing the security principal needed to authorize list access. The relationship is a 'Customer-Supplier' model where Productivity depends on the stability of the Identity schema.</p>
                     </div>
 
-                    <div class="level-details elaboration">
-                        <h4>Level 3 — Elaboration</h4>
+                    <div class="level-details detail">
+                        <h4>Level 3 — Detail</h4>
                         
                         <h5>Task Aggregate Structure</h5>
                         <p>The <code>Task</code> is an entity within the <code>TaskList</code> Aggregate Root. A <code>Task</code> cannot exist outside of a <code>TaskList</code>. Modifications to a task's priority must be validated against the <code>TaskList</code>'s global priority constraints to ensure no more than 3 'Critical' tasks exist per list.</p>

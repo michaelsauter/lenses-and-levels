@@ -44,6 +44,9 @@
     --level-intro-color: var(--level-1-accent);
     --level-orientation-color: var(--level-2-accent);
     --level-elaboration-color: var(--level-3-accent);
+    --level-overview-color: var(--level-1-accent);
+    --level-map-color: var(--level-2-accent);
+    --level-detail-color: var(--level-3-accent);
 
     /* Shadows for premium depth */
     --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
@@ -520,28 +523,34 @@ a:hover {
 }
 
 /* Color Coded Details Boxes with Soft Modern Gradients */
-.level-details.introduction {
+.level-details.introduction,
+.level-details.overview {
     border-left: 5px solid var(--level-1-accent);
 }
-.level-details.introduction h4 {
+.level-details.introduction h4,
+.level-details.overview h4 {
     background-color: var(--level-1-bg);
     color: var(--level-1-text);
     border: 1px solid var(--level-1-border);
 }
 
-.level-details.orientation {
+.level-details.orientation,
+.level-details.map {
     border-left: 5px solid var(--level-2-accent);
 }
-.level-details.orientation h4 {
+.level-details.orientation h4,
+.level-details.map h4 {
     background-color: var(--level-2-bg);
     color: var(--level-2-text);
     border: 1px solid var(--level-2-border);
 }
 
-.level-details.elaboration {
+.level-details.elaboration,
+.level-details.detail {
     border-left: 5px solid var(--level-3-accent);
 }
-.level-details.elaboration h4 {
+.level-details.elaboration h4,
+.level-details.detail h4 {
     background-color: var(--level-3-bg);
     color: var(--level-3-text);
     border: 1px solid var(--level-3-border);

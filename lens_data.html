@@ -75,8 +75,8 @@
 
                 <h3>General Level Guidance</h3>
 
-                <div class="level-details introduction">
-                    <h4>Level 1 — Introduction</h4>
+                <div class="level-details overview">
+                    <h4>Level 1 — Overview</h4>
                     <ul>
                         <li>What are the major categories of data the system handles (e.g., Transactional, Analytical, Logs)?</li>
                         <li>Where does the "Source of Truth" live for critical entities?</li>
@@ -85,8 +85,8 @@
                     <p><em>Common Fulfillment: A high-level Information Map or conceptual Data Flow Diagram.</em></p>
                 </div>
 
-                <div class="level-details orientation">
-                    <h4>Level 2 — Orientation</h4>
+                <div class="level-details map">
+                    <h4>Level 2 — Map</h4>
                     <ul>
                         <li>Which persistence technologies are used for which data types?</li>
                         <li>How is data classified by sensitivity (e.g. Public, Internal, Restricted, PII)?</li>
@@ -96,8 +96,8 @@
                     <p><em>Common Fulfillment: A Data Landscape diagram and a Data Classification matrix.</em></p>
                 </div>
 
-                <div class="level-details elaboration">
-                    <h4>Level 3 — Elaboration</h4>
+                <div class="level-details detail">
+                    <h4>Level 3 — Detail</h4>
                     <ul>
                         <li>What are the specific table schemas, document structures, or event formats?</li>
                         <li>What is the indexing, partitioning, or sharding strategy?</li>
@@ -109,19 +109,19 @@
                 <div class="example-section">
                     <h3>Example: Completely over-engineered Todo-App</h3>
 
-                    <div class="level-details introduction">
-                        <h4>Level 1 — Introduction</h4>
+                    <div class="level-details overview">
+                        <h4>Level 1 — Overview</h4>
                         <p>The application manages <strong>Relational Task Data</strong> for core functionality and <strong>Time-series Audit Streams</strong> for user history. We adopt a <strong>Privacy-First</strong> posture, minimizing the collection of PII to only what is required for authentication.</p>
                     </div>
 
-                    <div class="level-details orientation">
-                        <h4>Level 2 — Orientation</h4>
+                    <div class="level-details map">
+                        <h4>Level 2 — Map</h4>
                         <p>Our data stack is split by access pattern and sensitivity. <strong>Amazon RDS (PostgreSQL)</strong> serves as the system of record. Data is classified as <code>PII/Restricted</code> (User email, Profile), <code>Private</code> (Task content), and <code>Public</code> (Static assets). The <strong>User Service</strong> is the only component with direct access to <code>PII</code> datasets.</p>
                         <p>We implement a 'Hot/Cold' data lifecycle: all tasks completed more than 180 days ago are automatically moved from RDS to an S3-based data lake in Parquet format to maintain query performance on the main database.</p>
                     </div>
 
-                    <div class="level-details elaboration">
-                        <h4>Level 3 — Elaboration</h4>
+                    <div class="level-details detail">
+                        <h4>Level 3 — Detail</h4>
                         
                         <h5>Entity Relationship Model (ERD)</h5>
                         <p>The core schema revolves around the <code>task_lists</code> table which has a <code>1:N</code> relationship with <code>tasks</code>. A <code>collaborators</code> join table links <code>users</code> to <code>task_lists</code> with associated permission enums.</p>

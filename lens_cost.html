@@ -75,8 +75,8 @@
 
                 <h3>General Level Guidance</h3>
 
-                <div class="level-details introduction">
-                    <h4>Level 1 — Introduction</h4>
+                <div class="level-details overview">
+                    <h4>Level 1 — Overview</h4>
                     <ul>
                         <li>What are the primary cost drivers for this architecture (e.g. Data Egress, Managed Services)?</li>
                         <li>What is the overall FinOps philosophy (e.g. "Reserve Instances by default", "Pay-as-you-go")?</li>
@@ -85,8 +85,8 @@
                     <p><em>Common Fulfillment: A high-level Cost Strategy statement or a 'Top 5 Cost Drivers' list.</em></p>
                 </div>
 
-                <div class="level-details orientation">
-                    <h4>Level 2 — Orientation</h4>
+                <div class="level-details map">
+                    <h4>Level 2 — Map</h4>
                     <ul>
                         <li>How are costs allocated across teams or services (e.g. Tagging Strategy)?</li>
                         <li>Which licensing models (Open Source, SaaS, Enterprise) are in use?</li>
@@ -95,8 +95,8 @@
                     <p><em>Common Fulfillment: Links to Cloud Billing consoles (e.g. AWS Cost Explorer) and the central Licensing Inventory.</em></p>
                 </div>
 
-                <div class="level-details elaboration">
-                    <h4>Level 3 — Elaboration</h4>
+                <div class="level-details detail">
+                    <h4>Level 3 — Detail</h4>
                     <ul>
                         <li>What are the specific cost-optimization levers (e.g. Spot instances, Gravity-based routing)?</li>
                         <li>What is the carbon footprint or 'Green score' of specific technical choices?</li>
@@ -108,18 +108,18 @@
                 <div class="example-section">
                     <h3>Example: Completely over-engineered Todo-App</h3>
 
-                    <div class="level-details introduction">
-                        <h4>Level 1 — Introduction</h4>
+                    <div class="level-details overview">
+                        <h4>Level 1 — Overview</h4>
                         <p>Our strategy is <strong>'Optimize for Agility first, then for Scale'</strong>. We accept higher initial costs for managed services (EKS, RDS) to minimize operational staff overhead.</p>
                     </div>
 
-                    <div class="level-details orientation">
-                        <h4>Level 2 — Orientation</h4>
+                    <div class="level-details map">
+                        <h4>Level 2 — Map</h4>
                         <p>Monthly spend is concentrated in <strong>EKS (40%)</strong>, <strong>RDS (30%)</strong>, and <strong>Data Transfer (15%)</strong>. We use a strictly enforced AWS Tagging policy (<code>Project</code>, <code>Environment</code>, <code>Owner</code>) to automatically generate monthly cost-center reports for each engineering squad.</p>
                     </div>
 
-                    <div class="level-details elaboration">
-                        <h4>Level 3 — Elaboration</h4>
+                    <div class="level-details detail">
+                        <h4>Level 3 — Detail</h4>
                         
                         <h5>Cost Optimization Lever: Karpet-Autoscaler</h5>
                         <p>We use <strong>Karpenter</strong> instead of the standard Cluster Autoscaler. Karpenter allows us to use <strong>AWS Spot Instances</strong> for 80% of our worker nodes, reducing compute costs by ~60%. Production workloads are 'weighted' to prefer Reserved Instances for the remaining 20%.</p>
